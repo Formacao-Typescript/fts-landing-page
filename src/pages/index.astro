@@ -7,8 +7,12 @@ import Header from './home/Header.astro';
 ---
 
 <Layout title="Formação Typescript">
-  <Header />
   <main>
+    <Header />
+    <div class="background-blob">
+      <span class="blob"></span>
+      <span class="blob blob-2"></span>
+    </div>
     <!-- <Button variant="primary">Inscreva-se agora</Button>
     <Button variant="primary-large">
       Inscreva-se agora
@@ -26,4 +30,40 @@ import Header from './home/Header.astro';
   </main>
 </Layout>
 
-<style lang="scss"></style>
+<style lang="scss">
+  main {
+    position: relative;
+    width: 100%;
+  }
+
+  .background-blob {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .blob {
+    position: absolute;
+    width: calc(468.92px * 1.5);
+    height: calc(468.92px * 1.5);
+    top: 100px;
+    left: -177.19px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--blue-dark) 0%, transparent 70%);
+    z-index: -1;
+
+    &-2 {
+      background: radial-gradient(
+        circle,
+        var(--blue-light) 0%,
+        transparent 70%
+      );
+      top: -100px;
+      left: calc(45% + 177.19px);
+    }
+  }
+</style>
