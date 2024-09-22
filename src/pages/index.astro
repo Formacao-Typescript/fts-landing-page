@@ -4,6 +4,7 @@ import Button from '../components/Button.astro';
 import AnimatedCodeBlock from '../components/AnimatedCodeBlock.astro';
 import FixedCTA from '../components/FixedCTA.astro';
 import Header from './home/Header.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
 ---
 
 <Layout title="Formação Typescript">
@@ -20,12 +21,36 @@ import Header from './home/Header.astro';
           >TypeScript</strong
         >
       </h1>
-      <p class="body-24">
+      <p class="body-24" style="margin-bottom: 200px">
         Domine a <strong>tecnologia mais requisitada</strong> e conquiste as melhores
         vagas do mercado.
       </p>
+      <VideoPlayer src="/public/assets/video.mp4" />
     </section>
-    <!-- <Button variant="primary">Inscreva-se agora</Button>
+    <section id="about-ts" class="about-ts">
+      <div class="about-ts-text">
+        <div class="about-ts-text-image">
+          <img src="/public/assets/TS.png" alt="typescript" />
+        </div>
+        <h3>A linguagem do futuro</h3>
+        <p class="body-20">
+          O TypeScript é uma das linguagens mais admiradas e desejadas no mundo.
+          Grandes empresas como Microsoft e Google já utilizam TypeScript para
+          manter suas aplicações.
+        </p>
+        <p class="body-20">
+          Se você tem o sonho de trabalhar no exterior, centenas de empresas
+          internacionais estão contratando desenvolvedores TypeScript,
+          oferecendo a chance de migrar para uma carreira fora do país, assim
+          como eu fiz.
+        </p>
+      </div>
+      <div class="about-ts-codeblock">
+        <img src="/public/assets/PROVISORIO.png" alt="typescript code" />
+      </div>
+    </section>
+  </main>
+  <!-- <Button variant="primary">Inscreva-se agora</Button>
     <Button variant="primary-large">
       Inscreva-se agora
       <img
@@ -39,13 +64,13 @@ import Header from './home/Header.astro';
     <AnimatedCodeBlock code={'Code block here_'} language="javascript" />
     <FixedCTA />
     <img src="/public/assets/logo.svg" alt="logo" /> -->
-  </main>
 </Layout>
 
 <style lang="scss">
   main {
     position: relative;
     width: 100%;
+    padding-bottom: 400px;
   }
 
   #hero {
@@ -54,6 +79,46 @@ import Header from './home/Header.astro';
     align-items: center;
     justify-content: center;
     margin-top: 128px;
+  }
+
+  .about-ts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 165px;
+
+    &-text {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-right: 60px;
+
+      h3,
+      p {
+        width: 100%;
+        text-align: left;
+      }
+
+      &-image {
+        width: 100px;
+        height: 100px;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translate(-70px, -65px);
+        }
+      }
+    }
+
+    &-codeblock {
+      // flex: 1;
+    }
   }
 
   .background-blob {

@@ -1,0 +1,47 @@
+---
+interface Props {
+  src: string;
+  poster?: string;
+  autoplay?: boolean;
+  controls?: boolean;
+  muted?: boolean;
+  loop?: boolean;
+}
+
+const {
+  src,
+  poster,
+  autoplay = false,
+  controls = true,
+  muted = false,
+  loop = false,
+} = Astro.props;
+---
+
+<div class="video-player">
+  <video
+    src={src}
+    poster={poster}
+    autoplay={autoplay}
+    controls={controls}
+    muted={muted}
+    loop={loop}
+  >
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<style lang="scss">
+  .video-player {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+</style>
