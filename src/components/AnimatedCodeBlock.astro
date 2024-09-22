@@ -1,13 +1,12 @@
 ---
 interface Props {
   code: string;
-  language?: string;
 }
 
-const { code, language = 'javascript' } = Astro.props;
+const { code } = Astro.props;
 ---
 
-<div class={`animated-code-block language-${language}`}>
+<div class="animated-code-block">
   <code>{code}</code>
 </div>
 

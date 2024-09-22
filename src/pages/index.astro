@@ -13,6 +13,18 @@ import Header from './home/Header.astro';
       <span class="blob"></span>
       <span class="blob blob-2"></span>
     </div>
+    <section id="hero">
+      <AnimatedCodeBlock code="Hello World_" />
+      <h1>
+        Torne-se um mestre <br /> em <strong class="text-gradient"
+          >TypeScript</strong
+        >
+      </h1>
+      <p class="body-24">
+        Domine a <strong>tecnologia mais requisitada</strong> e conquiste as melhores
+        vagas do mercado.
+      </p>
+    </section>
     <!-- <Button variant="primary">Inscreva-se agora</Button>
     <Button variant="primary-large">
       Inscreva-se agora
@@ -36,6 +48,14 @@ import Header from './home/Header.astro';
     width: 100%;
   }
 
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 128px;
+  }
+
   .background-blob {
     position: absolute;
     left: 0;
@@ -54,7 +74,8 @@ import Header from './home/Header.astro';
     left: -177.19px;
     border-radius: 50%;
     background: radial-gradient(circle, var(--blue-dark) 0%, transparent 70%);
-    z-index: -1;
+    z-index: 1;
+    opacity: 0.7;
 
     &-2 {
       background: radial-gradient(
