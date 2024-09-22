@@ -1,0 +1,26 @@
+---
+import Button from './Button.astro';
+---
+
+<div class="fixed-cta">
+  <p class="body-16 fixed-cta-text">Sua carreira com TS começa aqui</p>
+  <Button variant="primary">Inscreva-se agora</Button>
+</div>
+
+<style lang="scss">
+  .fixed-cta {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 551px;
+    padding: 16px 32px;
+    border-radius: 8px;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff0d;
+    border: 1px solid #ffffff26;
+  }
+</style>
