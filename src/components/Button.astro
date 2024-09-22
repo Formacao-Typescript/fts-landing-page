@@ -1,0 +1,70 @@
+---
+interface Props {
+  variant: 'primary' | 'primary-large' | 'primary-alt' | 'outline';
+}
+
+const { variant = 'primary' } = Astro.props;
+---
+
+<button class={`button button-${variant}`}>
+  <slot />
+</button>
+
+<style lang="scss">
+  .button {
+    cursor: pointer;
+    // width: 185px;
+    height: 60px;
+    border-radius: 8px;
+    padding: 24px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 50px;
+    text-align: center;
+    color: var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: all 0.1s ease-in-out;
+
+    &:hover,
+    &:focus {
+      opacity: 0.95;
+      transform: scale(1.1);
+    }
+
+    &-primary-large {
+      // width: 273.1px;
+      height: 70.1px;
+      padding: 24px 32px;
+      font-size: 20px;
+
+      background: var(--blue-gradient);
+      box-shadow: var(--blue-box-shadow);
+    }
+
+    &-primary {
+      background: var(--blue-gradient);
+      box-shadow: var(--blue-box-shadow);
+    }
+
+    &-primary-alt {
+      color: var(--blue-gradient);
+      -webkit-text-fill-color: var(--blue-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background: var(--white);
+      box-shadow: var(--blue-box-shadow);
+    }
+
+    &-outline {
+      background: #ffffff0d;
+      border: 1px solid #ffffff4d;
+      font-weight: 300;
+    }
+  }
+</style>

@@ -1,10 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-  <main></main>
+  <main>
+    <Button variant="primary">Inscreva-se agora</Button>
+    <Button variant="primary-large">
+      Inscreva-se agora
+      <img
+        src="/public/assets/rocket.svg"
+        alt="rocket"
+        style="margin-left: 16px"
+      />
+    </Button>
+    <Button variant="primary-alt">Inscreva-se agora</Button>
+    <Button variant="outline">Inscreva-se agora</Button>
+  </main>
 </Layout>
 
 <style lang="scss"></style>
