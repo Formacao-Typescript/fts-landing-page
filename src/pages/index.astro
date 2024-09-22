@@ -5,6 +5,7 @@ import AnimatedCodeBlock from '../components/AnimatedCodeBlock.astro';
 import FixedCTA from '../components/FixedCTA.astro';
 import Header from './home/Header.astro';
 import VideoPlayer from '../components/VideoPlayer.astro';
+import BoxGradientBorder from '../components/BoxGradientBorder.astro';
 ---
 
 <Layout title="Formação Typescript">
@@ -14,12 +15,11 @@ import VideoPlayer from '../components/VideoPlayer.astro';
       <span class="blob"></span>
       <span class="blob blob-2"></span>
     </div>
-    <section id="hero">
+    <section id="hero" class="limited-width">
       <AnimatedCodeBlock code="Hello World_" />
       <h1>
-        Torne-se um mestre <br /> em <strong class="text-gradient"
-          >TypeScript</strong
-        >
+        Torne-se um mestre <br /> em
+        <span class="text-gradient">TypeScript</span>
       </h1>
       <p class="body-24" style="margin-bottom: 200px">
         Domine a <strong>tecnologia mais requisitada</strong> e conquiste as melhores
@@ -27,7 +27,7 @@ import VideoPlayer from '../components/VideoPlayer.astro';
       </p>
       <VideoPlayer src="/public/assets/video.mp4" />
     </section>
-    <section id="about-ts" class="about-ts">
+    <section id="about-ts" class="about-ts limited-width">
       <div class="about-ts-text">
         <div class="about-ts-text-image">
           <img src="/public/assets/TS.png" alt="typescript" />
@@ -76,6 +76,18 @@ import VideoPlayer from '../components/VideoPlayer.astro';
         <p class="body-16">do que as outras linguagens de programação.</p>
       </div>
     </section>
+
+    <section id="target-audience" class="target-audience box limited-width">
+      <BoxGradientBorder borderColor="gray" padding="98px" borderWidth="1px">
+        <h1><span class="text-gradient">Para quem</span> é</h1>
+
+        <div class="plans">
+          <div class="plan"></div>
+          <div class="plan"></div>
+          <div class="plan"></div>
+        </div>
+      </BoxGradientBorder>
+    </section>
   </main>
   <!-- <Button variant="primary">Inscreva-se agora</Button>
     <Button variant="primary-large">
@@ -98,6 +110,21 @@ import VideoPlayer from '../components/VideoPlayer.astro';
     position: relative;
     width: 100%;
     padding-bottom: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .limited-width {
+    max-width: 1102px;
   }
 
   #hero {
@@ -185,13 +212,31 @@ import VideoPlayer from '../components/VideoPlayer.astro';
     }
   }
 
+  #target-audience {
+    margin-top: 175px;
+    margin-bottom: 90px;
+
+    .plans {
+      display: flex;
+      gap: 32px;
+      margin-top: 84px;
+      .plan {
+        width: 291px;
+        height: 401px;
+        padding: 48px 32px;
+        border-radius: 8px;
+        background: var(--gray-800);
+      }
+    }
+  }
+
   .background-blob {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    // overflow: hidden;
     pointer-events: none;
   }
 

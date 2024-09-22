@@ -1,0 +1,45 @@
+---
+interface Props {
+  borderColor?: 'blue' | 'gray' | 'custom';
+  customGradient?: string;
+  padding?: string;
+  borderWidth?: string;
+}
+
+const {
+  borderColor = 'blue',
+  customGradient,
+  padding = '20px',
+  borderWidth = '2px',
+} = Astro.props;
+
+const gradients = {
+  blue: 'linear-gradient(105.87deg, #01c4fb 0.1%, #0165fc 77.77%)',
+  gray: 'linear-gradient(180deg, #2D2D2D 0%, #121214 100%)',
+  custom: customGradient,
+};
+
+const gradient = gradients[borderColor] || gradients.blue;
+---
+
+<div class="gradient-border">
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{ gradient, padding, borderWidth }}>
+  .gradient-border {
+    width: 100%;
+    position: relative;
+    background: var(--gradient);
+    padding: var(--borderWidth);
+    border-radius: 8px;
+  }
+
+  .content {
+    background: var(--gray-900);
+    padding: var(--padding);
+    border-radius: 6px;
+  }
+</style>
