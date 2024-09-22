@@ -141,6 +141,47 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
         </Button>
       </BoxGradientBorder>
     </section>
+
+    <section id="your-mentor" class="box limited-width">
+      <BoxGradientBorder
+        borderColor="gray"
+        padding="0px"
+        borderWidth="1px"
+        backgroundColor="#121214"
+      >
+        <div class="your-mentor-container">
+          <div></div>
+          <div class="your-mentor-text">
+            <h3>Seu mentor</h3>
+
+            <p class="body-20">
+              Lucas Santos, educador e palestrante com mais de 10 anos de
+              experiência em desenvolvimento.
+            </p>
+            <p class="body-20">
+              Já trabalhou em
+              <strong>
+                empresas como Microsoft e Google, onde recebeu prêmios como
+                especialista em JavaScript, Node.js e Typescript
+              </strong>. Sendo um dos dois únicos brasileiros reconhecidos como
+              Docker Captain.
+            </p>
+            <p class="body-20">
+              Com mais de 150 palestras nacionais e internacionais, foi o
+              <strong>
+                primeiro brasileiro a receber o título de TypeScript Champion
+              </strong>
+              pela Deno Foundation.
+            </p>
+
+            <p class="body-20">
+              Com mais de 400 publicações técnicas, seus conteúdos já ensinaram
+              mais de 1 milhão de pessoas.
+            </p>
+          </div>
+        </div>
+      </BoxGradientBorder>
+    </section>
   </main>
 </Layout>
 
@@ -331,6 +372,41 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
         padding: 32px;
         border-radius: 8px;
         border: 1px solid var(--gray-700);
+      }
+    }
+  }
+
+  #your-mentor {
+    .your-mentor-container {
+      border-radius: 8px;
+      background: url('/public/assets/mentor-bg.jpg') no-repeat center center;
+      background-size: auto 100%;
+      background-position: -300px center;
+      display: flex;
+      justify-content: flex-end;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 0;
+        width: calc(100% - 1px);
+        border-radius: 8px;
+        height: 100%;
+        background: linear-gradient(to left, var(--gray-900), transparent);
+        z-index: 1;
+      }
+
+      > div {
+        width: 50%;
+        text-align: left;
+      }
+
+      .your-mentor-text {
+        max-width: 400px;
+        margin-top: 43px;
+        margin-right: 80px;
+        z-index: 2;
       }
     }
   }
