@@ -88,6 +88,19 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
         </div>
       </BoxGradientBorder>
     </section>
+
+    <section id="cta-alt" class="limited-width">
+      <h3>
+        Transforme/conquiste sua <br />
+        carreira em TypeScript
+      </h3>
+      <div class="cta-alt-buttons">
+        <img src="/public/assets/icons/arrow-right.svg" alt=">" />
+        <Button variant="primary-alt">
+          <span class="text-gradient">Inscreva-se agora</span>
+        </Button>
+      </div>
+    </section>
   </main>
   <!-- <Button variant="primary">Inscreva-se agora</Button>
     <Button variant="primary-large">
@@ -124,6 +137,7 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
   }
 
   .limited-width {
+    width: 100%;
     max-width: 1102px;
   }
 
@@ -227,6 +241,26 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
         border-radius: 8px;
         background: var(--gray-800);
       }
+    }
+  }
+
+  #cta-alt {
+    background: linear-gradient(105.87deg, #01c4fb 0.1%, #0165fc 77.77%);
+    box-shadow: 0px 4px 70.9px 0px #0266fc80;
+    border-radius: 8px;
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      margin: 0;
+    }
+
+    .cta-alt-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
   }
 
