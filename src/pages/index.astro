@@ -3,12 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import AnimatedCodeBlock from '../components/AnimatedCodeBlock.astro';
 import FixedCTA from '../components/FixedCTA.astro';
-import Logo from '../components/Logo.astro';
+import Header from './home/Header.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Formação Typescript">
+  <Header />
   <main>
-    <Button variant="primary">Inscreva-se agora</Button>
+    <!-- <Button variant="primary">Inscreva-se agora</Button>
     <Button variant="primary-large">
       Inscreva-se agora
       <img
@@ -21,7 +22,7 @@ import Logo from '../components/Logo.astro';
     <Button variant="outline">Inscreva-se agora</Button>
     <AnimatedCodeBlock code={'Code block here_'} language="javascript" />
     <FixedCTA />
-    <img src="/public/assets/logo.svg" alt="logo" />
+    <img src="/public/assets/logo.svg" alt="logo" /> -->
   </main>
 </Layout>
 

@@ -26,10 +26,12 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
-<style is:global>
+<style is:global lang="scss">
   :root {
     --blue-dark: #0165fc;
     --blue-light: #01c4fb;
@@ -48,58 +50,76 @@ const { title } = Astro.props;
   html,
   body {
     font-family: 'Plus Jakarta Sans';
-    background-color: var(--gray-700);
+    // background-color: var(--gray-700);
+    background: #09090a;
   }
 
   * {
     box-sizing: border-box;
   }
 
-  h1,
-  h2,
-  h3 {
-    font-family: 'Plus Jakarta Sans';
-    color: var(--gray-800);
-    font-weight: 400;
-  }
+  body {
+    margin: 0 auto;
+    & > main {
+      max-width: 1380px;
+    }
 
-  h1 {
-    font-size: 64px;
-    line-height: 76.8px;
-    text-align: center;
-  }
+    h1,
+    h2,
+    h3 {
+      font-family: 'Plus Jakarta Sans';
+      color: var(--gray-800);
+      font-weight: 400;
+    }
 
-  h2 {
-    font-size: 48px;
-    line-height: 57.6px;
-    text-align: left;
-  }
+    h1 {
+      font-size: 64px;
+      line-height: 76.8px;
+      text-align: center;
+    }
 
-  h3 {
-    font-size: 32px;
-    line-height: 38.4px;
-    text-align: left;
-  }
+    h2 {
+      font-size: 48px;
+      line-height: 57.6px;
+      text-align: left;
+    }
 
-  p {
-    font-family: 'Plus Jakarta Sans';
-    color: var(--gray-500);
-    font-weight: 400;
-    text-align: center;
-  }
+    h3 {
+      font-size: 32px;
+      line-height: 38.4px;
+      text-align: left;
+    }
 
-  p.body-24 {
-    font-size: 24px;
-    line-height: 36px;
-  }
+    p {
+      font-family: 'Plus Jakarta Sans';
+      color: var(--gray-500);
+      font-weight: 400;
+      text-align: center;
 
-  p.body-20 {
-    font-size: 20px;
-    line-height: 30px;
-  }
+      &.body-24 {
+        font-size: 24px;
+        line-height: 36px;
+      }
 
-  p.body-16 {
-    font-size: 16px;
-    line-height: 24px;
+      &.body-20 {
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      &.body-16 {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .interactable {
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+      &:hover,
+      &:focus {
+        opacity: 0.9;
+        transform: scale(1.1);
+      }
+    }
   }
 </style>
