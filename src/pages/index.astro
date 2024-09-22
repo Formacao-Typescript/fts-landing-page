@@ -16,7 +16,7 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
       <span class="blob blob-2"></span>
     </div>
     <section id="hero" class="limited-width">
-      <AnimatedCodeBlock code="Hello World_" />
+      <AnimatedCodeBlock code="Hello World" />
       <h1>
         Torne-se um mestre <br /> em
         <span class="text-gradient">TypeScript</span>
@@ -47,6 +47,14 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
       </div>
       <div class="about-ts-codeblock">
         <img src="/public/assets/PROVISORIO.png" alt="typescript code" />
+        <span class="absolute-codeblock top-left">
+          <AnimatedCodeBlock code="Esse é seu futuro" />
+        </span>
+        <span class="absolute-codeblock bottom-right">
+          <AnimatedCodeBlock
+            code="Clique aqui e tenha seu primeiro contato com TS"
+          />
+        </span>
       </div>
     </section>
 
@@ -100,6 +108,15 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
           <span class="text-gradient">Inscreva-se agora</span>
         </Button>
       </div>
+    </section>
+
+    <section id="testimonials" class="box">
+      <BoxGradientBorder borderColor="gray" padding="98px" borderWidth="1px">
+        <div class="testimonials-header">
+          <h3>Depoimentos</h3>
+          <AnimatedCodeBlock code="O próximo depoimento pode ser o seu" />
+        </div>
+      </BoxGradientBorder>
     </section>
   </main>
   <!-- <Button variant="primary">Inscreva-se agora</Button>
@@ -185,7 +202,22 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
     }
 
     &-codeblock {
-      // flex: 1;
+      position: relative;
+
+      .absolute-codeblock {
+        position: absolute;
+        width: auto;
+
+        &.top-left {
+          top: 20px;
+          left: -70px;
+        }
+
+        &.bottom-right {
+          bottom: 20px;
+          right: -70px;
+        }
+      }
     }
   }
 
