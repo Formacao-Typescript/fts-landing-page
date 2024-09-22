@@ -4,6 +4,7 @@ interface Props {
   customGradient?: string;
   padding?: string;
   borderWidth?: string;
+  backgroundColor?: string;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   customGradient,
   padding = '20px',
   borderWidth = '2px',
+  backgroundColor = '#09090a',
 } = Astro.props;
 
 const gradients = {
@@ -28,7 +30,7 @@ const gradient = gradients[borderColor] || gradients.blue;
   </div>
 </div>
 
-<style define:vars={{ gradient, padding, borderWidth }}>
+<style define:vars={{ gradient, padding, borderWidth, backgroundColor }}>
   .gradient-border {
     width: 100%;
     position: relative;
@@ -38,7 +40,7 @@ const gradient = gradients[borderColor] || gradients.blue;
   }
 
   .content {
-    background: var(--gray-900);
+    background: var(--backgroundColor);
     padding: var(--padding);
     border-radius: 6px;
   }
