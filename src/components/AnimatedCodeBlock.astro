@@ -7,12 +7,11 @@ const { code } = Astro.props;
 ---
 
 <div class="animated-code-block">
-  <code>{code}_</code>
+  <code class="typewriter" data-code={code}></code><span class="cursor">_</span>
 </div>
 
 <style>
   .animated-code-block {
-    /* width: 203px; */
     height: 35px;
     padding: 12px 24px;
     border-radius: 4px;
@@ -33,4 +32,55 @@ const { code } = Astro.props;
     text-align: center;
     color: var(--gray-500);
   }
+
+  .cursor {
+    font-family: 'Red Hat Mono', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    text-align: center;
+    color: var(--gray-500);
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    from,
+    to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const typewriterElements = document.querySelectorAll('.typewriter');
+
+    typewriterElements.forEach((element, index) => {
+      const code = element.getAttribute('data-code');
+      let charIndex = 0;
+      let isErasing = false;
+      let typingInterval;
+
+      function typeWriter() {
+        if (!isErasing && charIndex < code.length) {
+          element.innerHTML += code.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, 100);
+        } else if (isErasing && charIndex > 0) {
+          element.innerHTML = code.substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(typeWriter, 100);
+        } else {
+          isErasing = !isErasing;
+          setTimeout(typeWriter, 1000); // Pause before starting to erase or type again
+        }
+      }
+
+      // Start the typing animation initially
+      typeWriter();
+    });
+  });
+</script>
