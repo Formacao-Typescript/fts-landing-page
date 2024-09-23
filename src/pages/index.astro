@@ -4,11 +4,13 @@ import Button from '../components/Button.astro';
 import AnimatedCodeBlock from '../components/AnimatedCodeBlock.astro';
 import FixedCTA from '../components/FixedCTA.astro';
 import Header from './home/Header.astro';
+import Pricing from './home/Pricing.astro';
 import VideoPlayer from '../components/VideoPlayer.astro';
 import BoxGradientBorder from '../components/BoxGradientBorder.astro';
 ---
 
 <Layout title="Formação Typescript">
+  <FixedCTA />
   <main>
     <Header />
     <div class="background-blob">
@@ -181,6 +183,10 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
           </div>
         </div>
       </BoxGradientBorder>
+    </section>
+
+    <section id="pricing" class="box limited-width">
+      <Pricing />
     </section>
   </main>
 </Layout>
@@ -409,6 +415,11 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
         z-index: 2;
       }
     }
+  }
+
+  #pricing {
+    height: 600px;
+    background: url('/public/assets/mentor-bg.jpg') no-repeat center center;
   }
 
   .background-blob {

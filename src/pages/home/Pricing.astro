@@ -1,0 +1,70 @@
+<div class="cool-box">
+  <!-- Content inside the box (you can add whatever you need) -->
+</div>
+
+<style>
+  .cool-box {
+    width: 724px;
+    height: 472px;
+    /* border: 2px solid;
+    border-image: linear-gradient(45deg, #00f, #0ff) 1; */
+    background: linear-gradient(45deg, #00f, #0ff);
+    padding: 2px; /* Space for the border */
+    background-clip: padding-box;
+    border-radius: 10px;
+    padding: 20px;
+
+    /* Glass effect */
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1); /* Translucent background */
+
+    /* To add more depth, a shadow */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    position: relative; /* Needed for the pseudo-element to position correctly */
+    /* background: rgba(
+      255,
+      255,
+      255,
+      0.1
+    ); */
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+  }
+  .cool-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px; /* Same border-radius for the pseudo-element */
+    padding: 2px;
+    background: linear-gradient(45deg, #00f, #0ff); /* Gradient border effect */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0); /* Mask to show the border only */
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none; /* So it doesn't interfere with interaction */
+  }
+  /* .cool-box::before {
+    border-radius: inherit;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 255, 0.5),
+      rgba(0, 255, 255, 0.5)
+    );
+    z-index: -1;
+  } */
+</style>
