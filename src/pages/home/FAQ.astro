@@ -1,0 +1,90 @@
+---
+import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
+import FAQQuestions from './FAQQuestions.astro';
+---
+
+<div class="faq-container">
+  <div class="faq-whatsapp">
+    <h3>Perguntas e respostas mais frequentes</h3>
+
+    <BoxGradientBorder
+      borderColor="gray"
+      padding="32px"
+      borderWidth="1px"
+      backgroundColor="#121214"
+    >
+      <h4>Ficou alguma dúvida?</h4>
+      <p class="body-16">Nos envie uma mensagem</p>
+
+      <button class="faq-whatsapp-button interactable" type="button">
+        Chamar no Whatsapp
+      </button>
+    </BoxGradientBorder>
+  </div>
+  <FAQQuestions
+    questions={[
+      {
+        title: 'Quanto tempo vou ter acesso ao treinamento?',
+        paragraphs: [
+          'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações. eu fiz.',
+          'Se você tem o sonho de trabalhar no exterior, centenas de empresas internacionais estão contratando desenvolvedores TypeScript, oferecendo a chance de migrar para uma carreira fora do país, assim como eu fiz.',
+        ],
+      },
+      {
+        title: 'Qual o diferencial da Formação TS?',
+        paragraphs: [
+          'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações. eu fiz.',
+          'Se você tem o sonho de trabalhar no exterior, centenas de empresas internacionais estão contratando desenvolvedores TypeScript, oferecendo a chance de migrar para uma carreira fora do país, assim como eu fiz.',
+        ],
+      },
+      {
+        title: 'O que são os conteúdos extras?',
+        paragraphs: [
+          'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações. eu fiz.',
+          'Se você tem o sonho de trabalhar no exterior, centenas de empresas internacionais estão contratando desenvolvedores TypeScript, oferecendo a chance de migrar para uma carreira fora do país, assim como eu fiz.',
+        ],
+      },
+      {
+        title: 'O que está incluso no acesso ao curso?',
+        paragraphs: [
+          'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações. eu fiz.',
+          'Se você tem o sonho de trabalhar no exterior, centenas de empresas internacionais estão contratando desenvolvedores TypeScript, oferecendo a chance de migrar para uma carreira fora do país, assim como eu fiz.',
+        ],
+      },
+      {
+        title: 'Como a formação TS garante a prática?',
+        paragraphs: [
+          'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações. eu fiz.',
+          'Se você tem o sonho de trabalhar no exterior, centenas de empresas internacionais estão contratando desenvolvedores TypeScript, oferecendo a chance de migrar para uma carreira fora do país, assim como eu fiz.',
+        ],
+      },
+    ]}
+  />
+</div>
+
+<style lang="scss">
+  .faq-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .faq-whatsapp {
+      width: 459.83px;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+
+      &-button {
+        background: var(--green-medium);
+        box-shadow: var(--green-box-shadow);
+        padding: 24px 32px;
+        border-radius: 8px;
+        color: var(--white);
+        font-size: 16px;
+      }
+    }
+  }
+</style>

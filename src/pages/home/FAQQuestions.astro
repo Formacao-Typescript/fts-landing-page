@@ -1,0 +1,126 @@
+---
+interface Question {
+  title: string;
+  paragraphs: string[];
+}
+
+interface Props {
+  questions: Question[];
+}
+
+const { questions } = Astro.props;
+---
+
+<ol class="faq-questions">
+  {
+    questions.map(question => (
+      <li class="faq-question" id={'question-' + question.title}>
+        <p class="body-20 faq-question-title">
+          {question.title}
+          <button
+            type="button"
+            class="faq-question-button interactable"
+            data-question-id={'question-' + question.title}
+          >
+            {/* <img src="/assets/icons/arrow-down.svg" alt="Expandir" /> */}
+          </button>
+        </p>
+        <div class="faq-question-content">
+          {question.paragraphs.map(paragraph => (
+            <p class="body-16 faq-question-paragraph">{paragraph}</p>
+          ))}
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style lang="scss">
+  .faq-questions {
+    color: var(--white);
+    width: 100%;
+    max-width: 547px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style-position: none;
+    counter-reset: faq-counter;
+
+    li {
+      counter-increment: faq-counter;
+      padding: 32px 0;
+
+      &::marker {
+        content: counter(faq-counter, decimal-leading-zero) '.';
+        color: #ffffff80;
+      }
+
+      .faq-question {
+        &-title {
+          margin-left: 32px;
+          color: var(--white);
+          position: relative;
+        }
+
+        &-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+        }
+
+        &-button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 32px;
+          height: 32px;
+          background: url('/assets/icons/arrow-down.svg') no-repeat center
+            center;
+          background-size: 50%;
+          border-radius: 50%;
+          transition: transform 0.3s ease;
+          border: none;
+        }
+      }
+
+      // .faq-question--open {
+      //   .faq-question-button {
+      //     transform: rotate(180deg) !important;
+      //   }
+      // }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll<HTMLButtonElement>(
+      '.faq-question-button'
+    );
+
+    faqButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const questionId = button.getAttribute('data-question-id');
+        const questionElement = document.getElementById(questionId);
+
+        if (questionElement) {
+          questionElement.classList.toggle('faq-question--open');
+
+          const content = questionElement.querySelector(
+            '.faq-question-content'
+          );
+          if (content instanceof HTMLElement) {
+            if (questionElement.classList.contains('faq-question--open')) {
+              button.style.transform = 'rotate(180deg)';
+              content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+              button.style.transform = 'rotate(0deg)';
+              content.style.maxHeight = '0';
+            }
+          }
+        }
+      });
+    });
+  });
+</script>

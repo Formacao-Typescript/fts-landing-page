@@ -3,10 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import AnimatedCodeBlock from '../components/AnimatedCodeBlock.astro';
 import FixedCTA from '../components/FixedCTA.astro';
-import Header from './home/Header.astro';
-import Pricing from './home/Pricing.astro';
 import VideoPlayer from '../components/VideoPlayer.astro';
 import BoxGradientBorder from '../components/BoxGradientBorder.astro';
+
+import Header from './home/Header.astro';
+import Pricing from './home/Pricing.astro';
+import FAQ from './home/FAQ.astro';
 ---
 
 <Layout title="Formação Typescript">
@@ -187,6 +189,10 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
 
     <section id="pricing" class="box limited-width">
       <Pricing />
+    </section>
+
+    <section id="faq" class="box limited-width">
+      <FAQ />
     </section>
   </main>
 </Layout>
