@@ -152,6 +152,27 @@ const { title } = Astro.props;
     }
   }
 </style>
+
+<script>
+  function calculateZoom() {
+    const idealWidth = 1380;
+    const actualWidth = window.innerWidth;
+
+    if (actualWidth > 900 && actualWidth < 1800) {
+      const zoomLevel = actualWidth / idealWidth;
+      document.body.style.zoom = String(zoomLevel);
+      return zoomLevel; // Return the zoom level for reference
+    } else {
+      document.body.style.zoom = '1'; // Reset to normal zoom if outside the specified range
+      return 1; // Return normal zoom level
+    }
+  }
+
+  window.onload = calculateZoom;
+
+  window.onresize = calculateZoom;
+</script>
+
 <!-- <script>
   document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href^="#"]');
