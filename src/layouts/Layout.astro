@@ -1,4 +1,6 @@
 ---
+import Credits from '../components/Credits.astro';
+
 interface Props {
   title: string;
 }
@@ -29,6 +31,7 @@ const { title } = Astro.props;
     <main>
       <slot />
     </main>
+    <Credits />
   </body>
 </html>
 <style is:global lang="scss">
@@ -56,6 +59,7 @@ const { title } = Astro.props;
     scroll-behavior: smooth !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
   }
 
   * {
