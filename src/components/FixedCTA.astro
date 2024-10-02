@@ -59,12 +59,18 @@ import Button from './Button.astro';
     fixedCta.style.opacity = '0';
     fixedCta.style.transform = 'translate(-50%, 100%)';
 
-    setTimeout(() => {
-      fixedCta.style.transition =
-        'opacity 0.5s ease-out, transform 0.5s ease-out';
-      fixedCta.style.opacity = '1';
-      fixedCta.style.transform = 'translate(-50%, 0)';
-    }, 500);
+    let hasScrolled = false;
+    const showFixedCta = () => {
+      if (!hasScrolled && window.scrollY > 0) {
+        hasScrolled = true;
+        fixedCta.style.transition =
+          'opacity 0.5s ease-out, transform 0.5s ease-out';
+        fixedCta.style.opacity = '1';
+        fixedCta.style.transform = 'translate(-50%, 0)';
+        window.removeEventListener('scroll', showFixedCta);
+      }
+    };
+    window.addEventListener('scroll', showFixedCta);
 
     setTimeout(() => {
       const buttonContainer =
