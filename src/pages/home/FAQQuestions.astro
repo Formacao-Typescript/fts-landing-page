@@ -14,7 +14,7 @@ const { questions } = Astro.props;
 <ol class="faq-questions">
   {
     questions.map(question => (
-      <li class="faq-question" id={'question-' + question.title}>
+      <li class="faq-question interactable" id={'question-' + question.title}>
         <p class="body-20 faq-question-title">
           {question.title}
           <button
@@ -50,12 +50,22 @@ const { questions } = Astro.props;
     li {
       counter-increment: faq-counter;
       padding: 32px 0;
+      border-top: 1px solid var(--gray-700);
 
       &::marker {
         content: counter(faq-counter, decimal-leading-zero) '.';
         color: #ffffff80;
       }
 
+      &.faq-question {
+        cursor: pointer;
+
+        &--open {
+          .faq-question-button {
+            transform: rotate(180deg);
+          }
+        }
+      }
       .faq-question {
         &-title {
           margin-left: 32px;
@@ -95,29 +105,22 @@ const { questions } = Astro.props;
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const faqButtons = document.querySelectorAll<HTMLButtonElement>(
-      '.faq-question-button'
-    );
+    const faqQuestions =
+      document.querySelectorAll<HTMLElement>('.faq-question');
 
-    faqButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const questionId = button.getAttribute('data-question-id');
-        const questionElement = document.getElementById(questionId);
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('faq-question--open');
 
-        if (questionElement) {
-          questionElement.classList.toggle('faq-question--open');
+        const content = question.querySelector<HTMLElement>(
+          '.faq-question-content'
+        );
 
-          const content = questionElement.querySelector(
-            '.faq-question-content'
-          );
-          if (content instanceof HTMLElement) {
-            if (questionElement.classList.contains('faq-question--open')) {
-              button.style.transform = 'rotate(180deg)';
-              content.style.maxHeight = content.scrollHeight + 'px';
-            } else {
-              button.style.transform = 'rotate(0deg)';
-              content.style.maxHeight = '0';
-            }
+        if (content) {
+          if (question.classList.contains('faq-question--open')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.maxHeight = '0';
           }
         }
       });
