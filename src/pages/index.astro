@@ -9,6 +9,7 @@ import BoxGradientBorder from '../components/BoxGradientBorder.astro';
 import Header from './home/Header.astro';
 import Pricing from './home/Pricing.astro';
 import FAQ from './home/FAQ.astro';
+import Numbers from './home/Numbers.astro';
 ---
 
 <Layout title="Formação Typescript">
@@ -63,30 +64,7 @@ import FAQ from './home/FAQ.astro';
     </section>
 
     <section id="numbers" class="numbers">
-      <div class="numbers-item">
-        <h1 class="text-gradient">90%</h1>
-        <h4 class="bold">Das empresas</h4>
-        <p class="body-16">
-          que utilizam JavaScript exigem o TypeScript como habilidade técnica.
-        </p>
-      </div>
-      <div class="numbers-item">
-        <h1 class="text-gradient">95%</h1>
-        <h4 class="bold">Do mercado internacional</h4>
-        <p class="body-16">
-          tem o TypeScript como a tecnologia mais requisitada.
-        </p>
-      </div>
-      <div class="numbers-item">
-        <h1 class="text-gradient">10x</h1>
-        <h4 class="bold">Mais rápida</h4>
-        <p class="body-16">do que as outras linguagens de programação.</p>
-      </div>
-      <div class="numbers-item">
-        <h1 class="text-gradient">2M+</h1>
-        <h4 class="bold">De desenvolvedores</h4>
-        <p class="body-16">do que as outras linguagens de programação.</p>
-      </div>
+      <Numbers />
     </section>
 
     <section id="target-audience" class="target-audience box limited-width">
@@ -279,44 +257,6 @@ import FAQ from './home/FAQ.astro';
           bottom: 20px;
           right: -70px;
         }
-      }
-    }
-  }
-
-  .numbers {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 66px;
-    margin-top: 144px;
-    padding-left: 144px;
-    &-item {
-      position: relative;
-      width: 328px;
-
-      h1,
-      h4,
-      p {
-        margin: 0;
-        text-align: left;
-      }
-
-      h4 {
-        margin-top: 32px;
-        margin-bottom: 16px;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -24px;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(
-          to top,
-          var(--blue-dark),
-          var(--blue-light)
-        );
       }
     }
   }

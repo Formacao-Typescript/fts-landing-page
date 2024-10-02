@@ -1,0 +1,104 @@
+<div class="numbers">
+  <div class="numbers-item">
+    <h1 class="text-gradient animated-number" data-number="90" data-sufix="%">
+      90%
+    </h1>
+    <h4 class="bold">Das empresas</h4>
+    <p class="body-16">
+      que utilizam JavaScript exigem o TypeScript como habilidade técnica.
+    </p>
+  </div>
+  <div class="numbers-item">
+    <h1 class="text-gradient animated-number" data-number="95" data-sufix="%">
+      95%
+    </h1>
+    <h4 class="bold">Do mercado internacional</h4>
+    <p class="body-16">tem o TypeScript como a tecnologia mais requisitada.</p>
+  </div>
+  <div class="numbers-item">
+    <h1 class="text-gradient animated-number" data-number="10" data-sufix="x">
+      10x
+    </h1>
+    <h4 class="bold">Mais rápida</h4>
+    <p class="body-16">do que as outras linguagens de programação.</p>
+  </div>
+  <div class="numbers-item">
+    <h1 class="text-gradient animated-number" data-number="2" data-sufix="M+">
+      2M+
+    </h1>
+    <h4 class="bold">De desenvolvedores</h4>
+    <p class="body-16">do que as outras linguagens de programação.</p>
+  </div>
+</div>
+
+<style lang="scss">
+  .numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 66px;
+    margin: 144px 0;
+    padding: 0 144px;
+    justify-content: center;
+
+    &-item {
+      position: relative;
+      width: 328px;
+
+      h1,
+      h4,
+      p {
+        margin: 0;
+        text-align: left;
+      }
+
+      h4 {
+        margin-top: 32px;
+        margin-bottom: 16px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -24px;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          var(--blue-dark),
+          var(--blue-light)
+        );
+      }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.animated-number');
+
+    elements.forEach(element => {
+      const targetNumber = parseInt(
+        element.getAttribute('data-number').replace(/\D/g, '')
+      );
+      const sufix = element.getAttribute('data-sufix');
+      let currentNumber = 0;
+      const duration = 2000; // Animation duration in milliseconds
+      const steps = 60; // Number of steps in the animation
+      const increment = targetNumber / steps;
+
+      const animate = () => {
+        currentNumber += increment;
+        if (currentNumber < targetNumber) {
+          element.textContent =
+            Math.floor(currentNumber).toLocaleString() + sufix;
+          requestAnimationFrame(animate);
+        } else {
+          element.textContent = targetNumber.toLocaleString() + sufix;
+        }
+      };
+
+      animate();
+    });
+  });
+</script>
