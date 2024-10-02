@@ -4,7 +4,9 @@ import Button from './Button.astro';
 
 <div class="fixed-cta">
   <p class="body-16 fixed-cta-text">Sua carreira com TS começa aqui</p>
-  <Button variant="primary">Inscreva-se agora</Button>
+  <div class="button-container">
+    <Button variant="primary">Inscreva-se agora</Button>
+  </div>
 </div>
 
 <style lang="scss">
@@ -22,8 +24,70 @@ import Button from './Button.astro';
     align-items: center;
     background: #ffffff0d;
     border: 1px solid #ffffff26;
-
     z-index: 100;
     backdrop-filter: blur(10px);
+    animation: slideUp 1s ease-out;
+
+    .button-container {
+      animation: pulse 5s ease-in-out;
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 0 var(--blue-light));
+    }
+    50% {
+      filter: drop-shadow(0 0 0.75rem var(--blue-light));
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translate(-50%, 100%);
+    }
+    to {
+      transform: translate(-50%, 0);
+    }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fixedCta = document.querySelector<HTMLElement>('.fixed-cta');
+    fixedCta.style.opacity = '0';
+    fixedCta.style.transform = 'translate(-50%, 100%)';
+
+    setTimeout(() => {
+      fixedCta.style.transition =
+        'opacity 0.5s ease-out, transform 0.5s ease-out';
+      fixedCta.style.opacity = '1';
+      fixedCta.style.transform = 'translate(-50%, 0)';
+    }, 500);
+
+    const minInterval = 5000; // 5 seconds
+    const maxInterval = 15000; // 15 seconds
+
+    const getRandomInterval = () => {
+      return (
+        Math.floor(Math.random() * (maxInterval - minInterval + 1)) +
+        minInterval
+      );
+    };
+
+    const animatePulse = () => {
+      const buttonContainer =
+        fixedCta.querySelector<HTMLButtonElement>('.button-container');
+      buttonContainer.style.animation = 'none';
+      setTimeout(() => {
+        buttonContainer.style.animation = 'pulse 2s ease-in-out';
+      }, 500);
+
+      const nextInterval = getRandomInterval();
+      setTimeout(animatePulse, nextInterval);
+    };
+
+    setTimeout(animatePulse, getRandomInterval());
+  });
+</script>
