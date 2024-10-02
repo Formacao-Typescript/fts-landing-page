@@ -29,7 +29,7 @@ import Button from './Button.astro';
     animation: slideUp 1s ease-out;
 
     .button-container {
-      animation: pulse 5s ease-in-out;
+      animation: pulse 5s ease-in-out infinite;
     }
   }
 
@@ -66,28 +66,44 @@ import Button from './Button.astro';
       fixedCta.style.transform = 'translate(-50%, 0)';
     }, 500);
 
-    const minInterval = 5000; // 5 seconds
-    const maxInterval = 15000; // 15 seconds
-
-    const getRandomInterval = () => {
-      return (
-        Math.floor(Math.random() * (maxInterval - minInterval + 1)) +
-        minInterval
-      );
-    };
-
-    const animatePulse = () => {
+    setTimeout(() => {
       const buttonContainer =
-        fixedCta.querySelector<HTMLButtonElement>('.button-container');
-      buttonContainer.style.animation = 'none';
-      setTimeout(() => {
-        buttonContainer.style.animation = 'pulse 2s ease-in-out';
-      }, 500);
+        fixedCta.querySelector<HTMLElement>('.button-container');
 
-      const nextInterval = getRandomInterval();
-      setTimeout(animatePulse, nextInterval);
-    };
+      // Force a reflow to ensure the pause takes effect
+      void buttonContainer.offsetWidth;
 
-    setTimeout(animatePulse, getRandomInterval());
+      // Resume the animation
+      buttonContainer.style.animationPlayState = 'paused';
+
+      const minInterval = 5000; // 5 seconds
+      const maxInterval = 15000; // 15 seconds
+
+      const getRandomInterval = () => {
+        return (
+          Math.floor(Math.random() * (maxInterval - minInterval + 1)) +
+          minInterval
+        );
+      };
+
+      const animatePulse = () => {
+        const buttonContainer =
+          fixedCta.querySelector<HTMLButtonElement>('.button-container');
+
+        // Force a reflow to ensure the pause takes effect
+        void buttonContainer.offsetWidth;
+
+        // Resume the animation
+        buttonContainer.style.animationPlayState = 'running';
+        setTimeout(() => {
+          // Pause the animation
+          buttonContainer.style.animationPlayState = 'paused';
+        }, 5000);
+        const nextInterval = getRandomInterval();
+        setTimeout(animatePulse, nextInterval);
+      };
+
+      setTimeout(animatePulse, getRandomInterval());
+    }, 5000);
   });
 </script>
