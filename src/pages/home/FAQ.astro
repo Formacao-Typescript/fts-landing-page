@@ -84,6 +84,26 @@ import FAQQuestions from './FAQQuestions.astro';
         border-radius: 8px;
         color: var(--white);
         font-size: 16px;
+        border: none;
+        transition: transform 0.2s ease-out;
+        animation: pulse-shadow 4s infinite;
+
+        @keyframes pulse-shadow {
+          0% {
+            filter: drop-shadow(0 0 0 #00c86f);
+          }
+          50% {
+            filter: drop-shadow(0 0 0.75rem #00c86f);
+          }
+          100% {
+            filter: drop-shadow(0 0 0 #00c86f);
+          }
+        }
+
+        &:hover {
+          animation: none;
+          filter: drop-shadow(0 0 0.75rem #00c86f);
+        }
       }
     }
   }
