@@ -357,6 +357,20 @@ import FAQ from './home/FAQ.astro';
       display: flex;
       align-items: center;
       gap: 16px;
+
+      img {
+        animation: bounce 2s ease-in-out infinite;
+      }
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
     }
   }
 
