@@ -1,0 +1,35 @@
+---
+import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
+---
+
+<div class="target-audience">
+  <BoxGradientBorder borderColor="gray" padding="98px" borderWidth="1px">
+    <h1><span class="text-gradient">Para quem</span> é</h1>
+
+    <div class="plans">
+      <div class="plan"></div>
+      <div class="plan"></div>
+      <div class="plan"></div>
+    </div>
+  </BoxGradientBorder>
+</div>
+
+<style lang="scss">
+  .target-audience {
+    margin-top: 175px;
+    margin-bottom: 90px;
+
+    .plans {
+      display: flex;
+      gap: 32px;
+      margin-top: 84px;
+      .plan {
+        width: 291px;
+        height: 401px;
+        padding: 48px 32px;
+        border-radius: 8px;
+        background: var(--gray-800);
+      }
+    }
+  }
+</style>

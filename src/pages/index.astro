@@ -10,6 +10,9 @@ import Header from './home/Header.astro';
 import Pricing from './home/Pricing.astro';
 import FAQ from './home/FAQ.astro';
 import Numbers from './home/Numbers.astro';
+import AboutTS from './home/AboutTS.astro';
+import TargetAudience from './home/TargetAudience.astro';
+import Testimonials from './home/Testimonials.astro';
 ---
 
 <Layout title="Formação Typescript">
@@ -20,6 +23,7 @@ import Numbers from './home/Numbers.astro';
       <span class="blob"></span>
       <span class="blob blob-2"></span>
     </div>
+
     <section id="hero" class="limited-width">
       <AnimatedCodeBlock code="Hello World" />
       <h1>
@@ -32,35 +36,9 @@ import Numbers from './home/Numbers.astro';
       </p>
       <VideoPlayer src="/public/assets/video.mp4" />
     </section>
+
     <section id="about-ts" class="about-ts limited-width">
-      <div class="about-ts-text">
-        <div class="about-ts-text-image">
-          <img src="/public/assets/TS.png" alt="typescript" />
-        </div>
-        <h3>A linguagem do futuro</h3>
-        <p class="body-20">
-          O TypeScript é uma das linguagens mais admiradas e desejadas no mundo.
-          Grandes empresas como Microsoft e Google já utilizam TypeScript para
-          manter suas aplicações.
-        </p>
-        <p class="body-20">
-          Se você tem o sonho de trabalhar no exterior, centenas de empresas
-          internacionais estão contratando desenvolvedores TypeScript,
-          oferecendo a chance de migrar para uma carreira fora do país, assim
-          como eu fiz.
-        </p>
-      </div>
-      <div class="about-ts-codeblock">
-        <img src="/public/assets/PROVISORIO.png" alt="typescript code" />
-        <span class="absolute-codeblock top-left">
-          <AnimatedCodeBlock code="Esse é seu futuro" />
-        </span>
-        <span class="absolute-codeblock bottom-right">
-          <AnimatedCodeBlock
-            code="Clique aqui e tenha seu primeiro contato com TS"
-          />
-        </span>
-      </div>
+      <AboutTS />
     </section>
 
     <section id="numbers" class="numbers">
@@ -68,15 +46,7 @@ import Numbers from './home/Numbers.astro';
     </section>
 
     <section id="target-audience" class="target-audience box limited-width">
-      <BoxGradientBorder borderColor="gray" padding="98px" borderWidth="1px">
-        <h1><span class="text-gradient">Para quem</span> é</h1>
-
-        <div class="plans">
-          <div class="plan"></div>
-          <div class="plan"></div>
-          <div class="plan"></div>
-        </div>
-      </BoxGradientBorder>
+      <TargetAudience />
     </section>
 
     <section id="cta-alt" class="limited-width">
@@ -93,35 +63,7 @@ import Numbers from './home/Numbers.astro';
     </section>
 
     <section id="testimonials" class="box">
-      <BoxGradientBorder
-        borderColor="gray"
-        padding="98px"
-        borderWidth="1px"
-        backgroundColor="#121214"
-      >
-        <div class="testimonials-header">
-          <h3>
-            Eles conquistaram seus objetivos de <br /> carreira e transformaram suas
-            vidas
-          </h3>
-          <AnimatedCodeBlock code="O próximo depoimento pode ser o seu" />
-        </div>
-
-        <div class="testimonials-carousel">
-          <div class="testimonials-carousel-item"></div>
-          <div class="testimonials-carousel-item"></div>
-          <div class="testimonials-carousel-item"></div>
-        </div>
-
-        <Button variant="primary-large">
-          Quero ser mais um depoimento
-          <img
-            src="/public/assets/icons/rocket.svg"
-            alt="rocket"
-            style="margin-left: 16px"
-          />
-        </Button>
-      </BoxGradientBorder>
+      <Testimonials />
     </section>
 
     <section id="your-mentor" class="box limited-width">
@@ -206,79 +148,6 @@ import Numbers from './home/Numbers.astro';
     margin-top: 128px;
   }
 
-  .about-ts {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 165px;
-
-    &-text {
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin-right: 60px;
-
-      h3,
-      p {
-        width: 100%;
-        text-align: left;
-      }
-
-      &-image {
-        width: 100px;
-        height: 100px;
-
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          transform: translate(-70px, -65px);
-        }
-      }
-    }
-
-    &-codeblock {
-      position: relative;
-
-      .absolute-codeblock {
-        position: absolute;
-        width: auto;
-
-        &.top-left {
-          top: 20px;
-          left: -70px;
-        }
-
-        &.bottom-right {
-          bottom: 20px;
-          right: -70px;
-        }
-      }
-    }
-  }
-
-  #target-audience {
-    margin-top: 175px;
-    margin-bottom: 90px;
-
-    .plans {
-      display: flex;
-      gap: 32px;
-      margin-top: 84px;
-      .plan {
-        width: 291px;
-        height: 401px;
-        padding: 48px 32px;
-        border-radius: 8px;
-        background: var(--gray-800);
-      }
-    }
-  }
-
   #cta-alt {
     background: linear-gradient(105.87deg, #01c4fb 0.1%, #0165fc 77.77%);
     box-shadow: 0px 4px 70.9px 0px #0266fc80;
@@ -311,34 +180,6 @@ import Numbers from './home/Numbers.astro';
     }
     50% {
       transform: translateX(10px);
-    }
-  }
-
-  #testimonials {
-    padding-top: 96.8px;
-    padding-bottom: 56.71px;
-    .testimonials-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-
-      h3 {
-        margin: 0;
-      }
-    }
-
-    .testimonials-carousel {
-      display: flex;
-      gap: 16px;
-      margin: 78px 0;
-
-      &-item {
-        width: 400px;
-        height: 310.03px;
-        padding: 32px;
-        border-radius: 8px;
-        border: 1px solid var(--gray-700);
-      }
     }
   }
 

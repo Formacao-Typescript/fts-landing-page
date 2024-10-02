@@ -1,0 +1,67 @@
+---
+import AnimatedCodeBlock from '../../components/AnimatedCodeBlock.astro';
+import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
+import Button from '../../components/Button.astro';
+---
+
+<div class="testimonials box">
+  <BoxGradientBorder
+    borderColor="gray"
+    padding="98px"
+    borderWidth="1px"
+    backgroundColor="#121214"
+  >
+    <div class="testimonials-header">
+      <h3>
+        Eles conquistaram seus objetivos de <br /> carreira e transformaram suas
+        vidas
+      </h3>
+      <AnimatedCodeBlock code="O próximo depoimento pode ser o seu" />
+    </div>
+
+    <div class="testimonials-carousel">
+      <div class="testimonials-carousel-item"></div>
+      <div class="testimonials-carousel-item"></div>
+      <div class="testimonials-carousel-item"></div>
+    </div>
+
+    <Button variant="primary-large">
+      Quero ser mais um depoimento
+      <img
+        src="/public/assets/icons/rocket.svg"
+        alt="rocket"
+        style="margin-left: 16px"
+      />
+    </Button>
+  </BoxGradientBorder>
+</div>
+
+<style lang="scss">
+  .testimonials {
+    padding-top: 96.8px;
+    padding-bottom: 56.71px;
+    .testimonials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    .testimonials-carousel {
+      display: flex;
+      gap: 16px;
+      margin: 78px 0;
+
+      &-item {
+        width: 400px;
+        height: 310.03px;
+        padding: 32px;
+        border-radius: 8px;
+        border: 1px solid var(--gray-700);
+      }
+    }
+  }
+</style>
