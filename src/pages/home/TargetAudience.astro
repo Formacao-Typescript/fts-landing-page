@@ -7,14 +7,39 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
     <h1><span class="text-gradient">Para quem</span> é</h1>
 
     <div class="plans">
-      <div class="plan"></div>
-      <div class="plan"></div>
-      <div class="plan"></div>
+      <div class="plan">
+        <span class="placeholder-rectangle"></span>
+        <div>
+          <p class="body-24">Devs Iniciantes</p>
+          <p class="body-16">Passo a passo desde o início</p>
+        </div>
+      </div>
+      <div class="plan">
+        <div>
+          <p class="body-24">Devs Plenos</p>
+          <p class="body-16">Conceitos focados</p>
+        </div>
+        <span class="placeholder-rectangle"></span>
+      </div>
+      <div class="plan">
+        <span class="placeholder-rectangle"></span>
+        <div>
+          <p class="body-24">Devs Experientes</p>
+          <p class="body-16">Conteúdo prático</p>
+        </div>
+      </div>
     </div>
   </BoxGradientBorder>
 </div>
 
 <style lang="scss">
+  .placeholder-rectangle {
+    display: block;
+    width: 227px;
+    height: 227px;
+    border-radius: 9.84px;
+    background: #d9d9d9;
+  }
   .target-audience {
     margin-top: 40px;
     margin-bottom: 90px;
@@ -29,6 +54,26 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
         padding: 48px 32px;
         border-radius: 8px;
         background: var(--gray-800);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          margin: 0;
+
+          &.body-24 {
+            color: var(--white);
+          }
+
+          &.body-16 {
+            opacity: 0.8;
+          }
+        }
+
+        > div {
+          width: 100%;
+        }
       }
     }
   }
