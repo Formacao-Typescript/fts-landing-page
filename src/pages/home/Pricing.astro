@@ -1,11 +1,113 @@
+---
+import Button from '../../components/Button.astro';
+import pricing, { formatPrice } from '../../_config/pricing';
+---
+
 <div class="cool-box">
-  <!-- Content inside the box (you can add whatever you need) -->
+  <div class="pricing">
+    <div class="pricing-info pricing-box">
+      <img
+        src="/public/assets/logo.svg"
+        alt="Logo Formação TypeScript"
+        class="pricing-logo"
+      />
+      <ul>
+        <li class="pricing-info-item body-16">01 ano de acesso</li>
+        <li class="pricing-info-item body-16">01 ano de acesso</li>
+        <li class="pricing-info-item body-16">01 ano de acesso</li>
+        <li class="pricing-info-item body-16">01 ano de acesso</li>
+        <li class="pricing-info-item body-16">01 ano de acesso</li>
+      </ul>
+    </div>
+
+    <div class="pricing-divider"></div>
+
+    <div class="pricing-cta pricing-box">
+      <p class="pricing-cta-text body-20">12x de</p>
+      <h1 class="pricing-cta-price">{formatPrice(pricing.monthly)}</h1>
+      <p class="pricing-cta-text body-20">
+        ou {formatPrice(pricing.yearly)} à vista
+      </p>
+      <Button variant="primary-large" style="margin-top: 32px; padding: 27px">
+        Inscreva-se agora
+        <img
+          src="/public/assets/icons/rocket.svg"
+          alt="rocket"
+          style="margin-left: 16px"
+        />
+      </Button>
+    </div>
+  </div>
 </div>
 
-<style>
+<style lang="scss">
+  .pricing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 64px;
+
+    &-logo {
+      margin-bottom: 48px;
+    }
+
+    &-divider {
+      margin: 0 64px;
+      width: 1px;
+      height: 100%;
+      background: white;
+      opacity: 0.05;
+    }
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-500);
+    }
+    &-info {
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 31.98px;
+          height: 31.98px;
+          background: url('/public/assets/icons/check.svg') no-repeat center
+            center;
+          background-size: contain;
+          margin-right: 24px;
+        }
+      }
+    }
+
+    &-cta {
+      > h1,
+      > p {
+        margin: 0;
+      }
+      &-price {
+        color: var(--white);
+      }
+
+      button {
+        margin: 0 !important;
+      }
+    }
+  }
+
   .cool-box {
     width: 724px;
-    height: 472px;
+    // height: 472px;
     /* border: 2px solid;
     border-image: linear-gradient(45deg, #00f, #0ff) 1; */
     background: linear-gradient(45deg, #00f, #0ff);
@@ -51,20 +153,4 @@
     mask-composite: exclude;
     pointer-events: none; /* So it doesn't interfere with interaction */
   }
-  /* .cool-box::before {
-    border-radius: inherit;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background: linear-gradient(
-      45deg,
-      rgba(0, 0, 255, 0.5),
-      rgba(0, 255, 255, 0.5)
-    );
-    z-index: -1;
-  } */
 </style>

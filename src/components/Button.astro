@@ -1,12 +1,13 @@
 ---
 interface Props {
   variant: 'primary' | 'primary-large' | 'primary-alt' | 'outline';
+  style?: string;
 }
 
-const { variant = 'primary' } = Astro.props;
+const { variant = 'primary', style = '' } = Astro.props;
 ---
 
-<button class={`button button-${variant}`}>
+<button class={`button button-${variant}`} style={style}>
   <slot />
 </button>
 
