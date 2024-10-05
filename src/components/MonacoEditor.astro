@@ -98,5 +98,9 @@ const todo: Todo = {
     editor.onKeyDown(e => {
       handleSave(e.browserEvent);
     });
+
+    window.addEventListener('keydown', e => {
+      handleSave(e);
+    });
   });
 </script>
