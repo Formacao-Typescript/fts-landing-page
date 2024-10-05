@@ -2,6 +2,36 @@
 import AnimatedCodeBlock from '../../components/AnimatedCodeBlock.astro';
 import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
 import Button from '../../components/Button.astro';
+
+const items = [
+  {
+    quote:
+      'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações.',
+    user: {
+      name: 'Luan Alur',
+      photoSrc: '/public/assets/testimonials/user-placeholder.svg',
+      photoAlt: 'Aluno',
+    },
+  },
+  {
+    quote:
+      'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações.',
+    user: {
+      name: 'Luan Alur',
+      photoSrc: '/public/assets/testimonials/user-placeholder.svg',
+      photoAlt: 'Aluno',
+    },
+  },
+  {
+    quote:
+      'O TypeScript é uma das linguagens mais admiradas e desejadas no mundo. Grandes empresas como Microsoft e Google já utilizam TypeScript para manter suas aplicações.',
+    user: {
+      name: 'Luan Alur',
+      photoSrc: '/public/assets/testimonials/user-placeholder.svg',
+      photoAlt: 'Aluno',
+    },
+  },
+];
 ---
 
 <div class="testimonials box">
@@ -20,9 +50,21 @@ import Button from '../../components/Button.astro';
     </div>
 
     <div class="testimonials-carousel">
-      <div class="testimonials-carousel-item"></div>
-      <div class="testimonials-carousel-item"></div>
-      <div class="testimonials-carousel-item"></div>
+      {
+        items.map(item => (
+          <div class="testimonials-carousel-item">
+            <p class="body-20">"{item.quote}"</p>
+            <div class="user-card">
+              <img
+                src={item.user.photoSrc}
+                alt={item.user.photoAlt}
+                class="user-card-photo"
+              />
+              <span class="user-card-name">{item.user.name}</span>
+            </div>
+          </div>
+        ))
+      }
     </div>
 
     <Button variant="primary-large">
@@ -57,10 +99,25 @@ import Button from '../../components/Button.astro';
 
       &-item {
         width: 400px;
-        height: 310.03px;
+        // height: 310.03px;
         padding: 32px;
         border-radius: 8px;
         border: 1px solid var(--gray-700);
+
+        p {
+          color: var(--white);
+          margin: 0;
+        }
+
+        .user-card {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 16px;
+          margin-top: 32px;
+
+          color: var(--gray-500);
+        }
       }
     }
   }
