@@ -77,28 +77,41 @@
   document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.animated-number');
 
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            const targetNumber = parseInt(
+              element.getAttribute('data-number').replace(/\D/g, '')
+            );
+            const sufix = element.getAttribute('data-sufix');
+            let currentNumber = 0;
+            const duration = 2000; // Animation duration in milliseconds
+            const steps = 60; // Number of steps in the animation
+            const increment = targetNumber / steps;
+
+            const animate = () => {
+              currentNumber += increment;
+              if (currentNumber < targetNumber) {
+                element.textContent =
+                  Math.floor(currentNumber).toLocaleString() + sufix;
+                requestAnimationFrame(animate);
+              } else {
+                element.textContent = targetNumber.toLocaleString() + sufix;
+              }
+            };
+
+            animate();
+            observer.unobserve(element);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
     elements.forEach(element => {
-      const targetNumber = parseInt(
-        element.getAttribute('data-number').replace(/\D/g, '')
-      );
-      const sufix = element.getAttribute('data-sufix');
-      let currentNumber = 0;
-      const duration = 2000; // Animation duration in milliseconds
-      const steps = 60; // Number of steps in the animation
-      const increment = targetNumber / steps;
-
-      const animate = () => {
-        currentNumber += increment;
-        if (currentNumber < targetNumber) {
-          element.textContent =
-            Math.floor(currentNumber).toLocaleString() + sufix;
-          requestAnimationFrame(animate);
-        } else {
-          element.textContent = targetNumber.toLocaleString() + sufix;
-        }
-      };
-
-      animate();
+      observer.observe(element);
     });
   });
 </script>
