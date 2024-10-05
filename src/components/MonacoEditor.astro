@@ -1,0 +1,102 @@
+---
+import BoxGradientBorder from './BoxGradientBorder.astro';
+---
+
+<BoxGradientBorder
+  borderColor="gray"
+  padding="70px 0"
+  borderWidth="1px"
+  backgroundColor="#1E1E1E"
+>
+  <div id="monaco-editor-container"></div>
+</BoxGradientBorder>
+
+<style lang="scss">
+  #monaco-editor-container {
+    width: 540px;
+    height: 292.03px;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+</style>
+
+<script>
+  import * as monaco from 'monaco-editor';
+
+  const code = `interface Todo {
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+const todo: Todo = {
+  id: 1,
+  title: 'Todo 1',
+  completed: false,
+};`;
+
+  function handleSave(event: KeyboardEvent) {
+    if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+      event.preventDefault();
+      showSaveMessage();
+    }
+  }
+
+  // Function to show save message
+  function showSaveMessage() {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = 'Código salvo com sucesso! 🚀';
+    messageElement.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    `;
+    document.body.appendChild(messageElement);
+
+    // Fade in
+    setTimeout(() => {
+      messageElement.style.opacity = '1';
+    }, 10);
+
+    // Fade out and remove
+    setTimeout(() => {
+      messageElement.style.opacity = '0';
+      setTimeout(() => {
+        document.body.removeChild(messageElement);
+      }, 300);
+    }, 2000);
+  }
+
+  // Initialize the editor after the DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const editor = monaco.editor.create(
+      document.getElementById('monaco-editor-container'),
+      {
+        value: code,
+        language: 'typescript',
+        theme: 'vs-dark',
+        automaticLayout: true,
+        minimap: { enabled: true },
+        lineNumbers: 'on',
+        fontSize: 16,
+        scrollbar: {
+          vertical: 'hidden',
+          horizontal: 'hidden',
+        },
+        scrollBeyondLastLine: false,
+      }
+    );
+
+    // Add event listener for save action
+    editor.onKeyDown(e => {
+      handleSave(e.browserEvent);
+    });
+  });
+</script>

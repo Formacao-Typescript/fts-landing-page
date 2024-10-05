@@ -1,5 +1,6 @@
 ---
 import AnimatedCodeBlock from '../../components/AnimatedCodeBlock.astro';
+import MonacoEditor from '../../components/MonacoEditor.astro';
 ---
 
 <div class="about-ts">
@@ -20,11 +21,18 @@ import AnimatedCodeBlock from '../../components/AnimatedCodeBlock.astro';
     </p>
   </div>
   <div class="about-ts-codeblock">
-    <img src="/public/assets/PROVISORIO.png" alt="typescript code" />
+    <MonacoEditor
+      code="console.log('Hello World')"
+      language="typescript"
+      theme="vs-dark"
+      options={{ minimap: { enabled: false }, lineNumbers: 'on', fontSize: 16 }}
+      height="400px"
+    />
     <span class="absolute-codeblock top-left">
       <AnimatedCodeBlock code="Esse é seu futuro" />
     </span>
     <span class="absolute-codeblock bottom-right">
+      <!-- TODO: Add link around here -->
       <AnimatedCodeBlock
         code="Clique aqui e tenha seu primeiro contato com TS"
       />

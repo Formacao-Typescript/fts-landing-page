@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.8"
+    "astro": "^4.15.8",
+    "monaco-editor": "^0.52.0"
   },
   "devDependencies": {
     "sass-embedded": "^1.79.3"
