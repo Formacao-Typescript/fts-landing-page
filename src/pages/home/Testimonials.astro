@@ -38,6 +38,7 @@ const items = [
   <BoxGradientBorder
     borderColor="gray"
     padding="98px"
+    paddingMobile="4px"
     borderWidth="1px"
     backgroundColor="#121214"
   >
@@ -141,6 +142,10 @@ const items = [
     @media (max-width: 900px) {
       .testimonials-carousel {
         flex-direction: column;
+
+        &-item {
+          width: 100%;
+        }
       }
     }
   }

@@ -3,6 +3,7 @@ interface Props {
   borderColor?: 'blue' | 'gray' | 'custom';
   customGradient?: string;
   padding?: string;
+  paddingMobile?: string;
   borderWidth?: string;
   backgroundColor?: string;
 }
@@ -11,6 +12,7 @@ const {
   borderColor = 'blue',
   customGradient,
   padding = '20px',
+  paddingMobile = null,
   borderWidth = '2px',
   backgroundColor = '#09090a',
 } = Astro.props;
@@ -30,7 +32,15 @@ const gradient = gradients[borderColor] || gradients.blue;
   </div>
 </div>
 
-<style define:vars={{ gradient, padding, borderWidth, backgroundColor }}>
+<style
+  define:vars={{
+    gradient,
+    padding,
+    paddingMobile,
+    borderWidth,
+    backgroundColor,
+  }}
+>
   .gradient-border {
     width: 100%;
     position: relative;
@@ -43,5 +53,11 @@ const gradient = gradients[borderColor] || gradients.blue;
     background: var(--backgroundColor);
     padding: var(--padding);
     border-radius: 6px;
+  }
+
+  @media (max-width: 900px) {
+    .content {
+      padding: var(--paddingMobile, var(--padding));
+    }
   }
 </style>
