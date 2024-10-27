@@ -54,7 +54,7 @@ import Testimonials from './home/Testimonials.astro';
 
     <section id="cta-alt" class="limited-width">
       <h3>
-        Transforme/conquiste sua <br />
+        Transforme / conquiste sua <br />
         carreira em TypeScript
       </h3>
       <div class="cta-alt-buttons">
@@ -283,9 +283,12 @@ import Testimonials from './home/Testimonials.astro';
           display: block;
         }
       }
+
+      #cta-alt {
+        flex-direction: column;
+        gap: 48px;
+        margin-bottom: 0;
+      }
     }
-    // #cta-alt {
-    //   flex-direction: column;
-    // }
   }
 </style>

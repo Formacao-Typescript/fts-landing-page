@@ -46,7 +46,9 @@ const items = [
         Eles conquistaram seus objetivos de <br /> carreira e transformaram suas
         vidas
       </h3>
-      <AnimatedCodeBlock code="O próximo depoimento pode ser o seu" />
+      <div class="absolute-codeblock top-right">
+        <AnimatedCodeBlock code="O próximo depoimento pode ser o seu" />
+      </div>
     </div>
 
     <div class="testimonials-carousel">
@@ -66,15 +68,16 @@ const items = [
         ))
       }
     </div>
-
-    <Button variant="primary-large">
-      Quero ser mais um depoimento
-      <img
-        src="/public/assets/icons/rocket.svg"
-        alt="rocket"
-        style="margin-left: 16px"
-      />
-    </Button>
+    <div class="cta">
+      <Button variant="primary-large" style="padding: 22px;">
+        Quero ser mais um depoimento
+        <img
+          src="/public/assets/icons/rocket.svg"
+          alt="rocket"
+          style="margin-left: 16px"
+        />
+      </Button>
+    </div>
   </BoxGradientBorder>
 </div>
 
@@ -86,9 +89,18 @@ const items = [
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      position: relative;
 
       h3 {
         margin: 0;
+      }
+
+      .absolute-codeblock {
+        position: absolute;
+        &.top-right {
+          top: -30px;
+          right: 0;
+        }
       }
     }
 
@@ -118,6 +130,17 @@ const items = [
 
           color: var(--gray-500);
         }
+      }
+    }
+
+    .cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 78px;
+    }
+    @media (max-width: 900px) {
+      .testimonials-carousel {
+        flex-direction: column;
       }
     }
   }
