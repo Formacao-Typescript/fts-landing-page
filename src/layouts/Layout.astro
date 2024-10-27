@@ -151,6 +151,36 @@ const { title } = Astro.props;
       text-fill-color: transparent;
     }
   }
+
+  @media (max-width: 900px) {
+    html,
+    body {
+      width: 100%;
+    }
+
+    body {
+      & > main {
+        width: 100%;
+      }
+
+      h1,
+      h2 {
+        font-size: 32px;
+        line-height: 38.4px;
+      }
+
+      p {
+        &.body-24 {
+          font-size: 20px;
+          line-height: 30px;
+        }
+        &.body-20 {
+          font-size: 16px;
+          line-height: 20.16px;
+        }
+      }
+    }
+  }
 </style>
 
 <script>
