@@ -2,12 +2,16 @@
 interface Props {
   variant: 'primary' | 'primary-large' | 'primary-alt' | 'outline';
   style?: string;
+  tooLargeMobile?: boolean;
 }
 
-const { variant = 'primary', style = '' } = Astro.props;
+const { variant = 'primary', style = '', tooLargeMobile = false } = Astro.props;
 ---
 
-<button class={`button button-${variant}`} style={style}>
+<button
+  class={`button button-${variant} ${tooLargeMobile ? 'too-large-mobile' : ''}`}
+  style={style}
+>
   <slot />
 </button>
 
@@ -66,6 +70,12 @@ const { variant = 'primary', style = '' } = Astro.props;
       background: #ffffff0d;
       border: 1px solid #ffffff4d;
       font-weight: 300;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .button.too-large-mobile {
+      font-size: 12px;
     }
   }
 </style>

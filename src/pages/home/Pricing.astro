@@ -28,7 +28,11 @@ import pricing, { formatPrice } from '../../_config/pricing';
       <p class="pricing-cta-text body-20">
         ou {formatPrice(pricing.yearly)} à vista
       </p>
-      <Button variant="primary-large" style="margin-top: 32px; padding: 27px">
+      <Button
+        variant="primary-large"
+        style="margin-top: 32px; padding: 27px"
+        tooLargeMobile
+      >
         Inscreva-se agora
         <img
           src="/public/assets/icons/rocket.svg"
