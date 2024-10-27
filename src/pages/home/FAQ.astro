@@ -5,7 +5,7 @@ import FAQQuestions from './FAQQuestions.astro';
 
 <div class="faq-container">
   <div class="faq-whatsapp">
-    <h3>Perguntas e respostas mais frequentes</h3>
+    <h3 class="faq-title--desktop">Perguntas e respostas mais frequentes</h3>
 
     <BoxGradientBorder
       borderColor="gray"
@@ -60,6 +60,7 @@ import FAQQuestions from './FAQQuestions.astro';
       },
     ]}
   />
+  <h3 class="faq-title--mobile">Perguntas e respostas mais frequentes</h3>
 </div>
 
 <style lang="scss">
@@ -71,12 +72,24 @@ import FAQQuestions from './FAQQuestions.astro';
     align-items: center;
     justify-content: space-between;
 
+    .faq-title--mobile {
+      display: none;
+    }
+
     .faq-whatsapp {
       width: 459.83px;
       display: flex;
       flex-direction: column;
       gap: 64px;
 
+      h4 {
+        margin: 0;
+      }
+
+      p {
+        margin-top: 2px;
+        margin-bottom: 32px;
+      }
       &-button {
         background: var(--green-medium);
         box-shadow: var(--green-box-shadow);
@@ -104,6 +117,27 @@ import FAQQuestions from './FAQQuestions.astro';
           animation: none;
           filter: drop-shadow(0 0 0.75rem #00c86f);
         }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .faq-container {
+      flex-direction: column-reverse;
+      padding-bottom: 150px;
+
+      .faq-title {
+        &--desktop {
+          display: none;
+        }
+
+        &--mobile {
+          display: block;
+        }
+      }
+
+      .faq-whatsapp {
+        width: 100%;
       }
     }
   }

@@ -101,6 +101,12 @@ const { questions } = Astro.props;
       // }
     }
   }
+
+  @media (max-width: 900px) {
+    .interactable:hover {
+      transform: none !important;
+    }
+  }
 </style>
 
 <script>

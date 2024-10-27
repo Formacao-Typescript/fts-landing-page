@@ -153,4 +153,15 @@ import pricing, { formatPrice } from '../../_config/pricing';
     mask-composite: exclude;
     pointer-events: none; /* So it doesn't interfere with interaction */
   }
+
+  @media (max-width: 900px) {
+    .cool-box {
+      width: 100%;
+    }
+
+    .pricing {
+      flex-direction: column;
+      padding: 48px 24px;
+    }
+  }
 </style>
