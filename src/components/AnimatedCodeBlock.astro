@@ -10,7 +10,7 @@ const { code } = Astro.props;
   <code class="typewriter" data-code={code}></code><span class="cursor">_</span>
 </div>
 
-<style>
+<style lang="scss">
   .animated-code-block {
     height: 35px;
     padding: 12px 24px;
@@ -31,6 +31,11 @@ const { code } = Astro.props;
     line-height: 50px;
     text-align: center;
     color: var(--gray-500);
+
+    // @media (max-width: 900px) {
+    //   font-size: 12px;
+    //   line-height: 30px;
+    // }
   }
 
   .cursor {

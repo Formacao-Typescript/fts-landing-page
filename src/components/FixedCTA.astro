@@ -33,6 +33,17 @@ import Button from './Button.astro';
     }
   }
 
+  @media (max-width: 900px) {
+    .fixed-cta {
+      width: 80%;
+      justify-content: center;
+
+      .fixed-cta-text {
+        display: none;
+      }
+    }
+  }
+
   @keyframes pulse {
     0%,
     100% {

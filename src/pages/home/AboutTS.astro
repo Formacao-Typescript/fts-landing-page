@@ -95,4 +95,31 @@ import MonacoEditor from '../../components/MonacoEditor.astro';
       }
     }
   }
+
+  @media (max-width: 900px) {
+    .about-ts {
+      flex-direction: column;
+
+      &-text {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      &-codeblock {
+        width: 100%;
+        .absolute-codeblock {
+          &.top-left {
+            top: -20px;
+            left: 0;
+          }
+
+          &.bottom-right {
+            width: 600px;
+            bottom: 20px;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
 </style>

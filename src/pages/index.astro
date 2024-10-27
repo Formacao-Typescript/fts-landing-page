@@ -19,7 +19,7 @@ import Testimonials from './home/Testimonials.astro';
   <FixedCTA />
   <main>
     <Header />
-    <div class="background-blob">
+    <div class="background-blob" style="display: none">
       <span class="blob"></span>
       <span class="blob blob-2"></span>
     </div>
@@ -30,10 +30,13 @@ import Testimonials from './home/Testimonials.astro';
         Torne-se um mestre <br /> em
         <span class="text-gradient">TypeScript</span>
       </h1>
-      <p class="body-24" style="margin-bottom: 100px">
+      <p class="body-24">
         Domine a <strong>tecnologia mais requisitada</strong> e conquiste as melhores
         vagas do mercado.
       </p>
+      <div class="mobile-cta">
+        <Button variant="outline">Já sou aluno</Button>
+      </div>
       <VideoPlayer src="/public/assets/video.mp4" />
     </section>
 
@@ -146,6 +149,16 @@ import Testimonials from './home/Testimonials.astro';
     align-items: center;
     justify-content: center;
     margin-top: 128px;
+
+    p {
+      margin-bottom: 100px;
+    }
+
+    .mobile-cta {
+      display: none;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
   }
 
   #cta-alt {
@@ -253,5 +266,26 @@ import Testimonials from './home/Testimonials.astro';
       top: -100px;
       left: calc(45% + 177.19px);
     }
+  }
+
+  @media (max-width: 900px) {
+    main {
+      padding: 15px;
+
+      #hero {
+        margin-top: 40px;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        .mobile-cta {
+          display: block;
+        }
+      }
+    }
+    // #cta-alt {
+    //   flex-direction: column;
+    // }
   }
 </style>
