@@ -44,6 +44,9 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
 </div>
 
 <style lang="scss">
+  .mentor {
+    width: 100%;
+  }
   .your-mentor-container {
     border-radius: 8px;
     background: url('/public/assets/mentor-bg.jpg') no-repeat center center;
@@ -83,7 +86,7 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
     @media (max-width: 900px) {
       background-size: 100% auto;
       background-position: top;
-      padding-top: 200px;
+      padding: 200px 12px 0 12px;
 
       flex-direction: column;
       > div {
