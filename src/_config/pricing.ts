@@ -1,6 +1,6 @@
 const pricing = {
-  monthly: 32.93,
-  yearly: 329.99,
+  monthly: parseFloat(import.meta.env.PUBLIC_MONTHLY_PRICE),
+  yearly: parseFloat(import.meta.env.PUBLIC_YEARLY_PRICE),
 };
 
 export const formatPrice = (price: number) => {

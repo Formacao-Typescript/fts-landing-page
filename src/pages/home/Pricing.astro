@@ -12,11 +12,11 @@ import pricing, { formatPrice } from '../../_config/pricing';
         class="pricing-logo"
       />
       <ul>
-        <li class="pricing-info-item body-16">01 ano de acesso</li>
-        <li class="pricing-info-item body-16">01 ano de acesso</li>
-        <li class="pricing-info-item body-16">01 ano de acesso</li>
-        <li class="pricing-info-item body-16">01 ano de acesso</li>
-        <li class="pricing-info-item body-16">01 ano de acesso</li>
+        <li class="pricing-info-item body-16">Projetos práticos</li>
+        <li class="pricing-info-item body-16">Minicurso gratuito de Zod</li>
+        <li class="pricing-info-item body-16">Acesso à comunidade exclusiva</li>
+        <li class="pricing-info-item body-16">Contato direto com seu mentor</li>
+        <li class="pricing-info-item body-16">Preparado para o mercado</li>
       </ul>
     </div>
 
@@ -74,6 +74,9 @@ import pricing, { formatPrice } from '../../_config/pricing';
       ul {
         list-style: none;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
       li {
         margin-bottom: 30px;
@@ -90,6 +93,7 @@ import pricing, { formatPrice } from '../../_config/pricing';
             center;
           background-size: contain;
           margin-right: 24px;
+          flex-shrink: 0;
         }
       }
     }
@@ -110,7 +114,7 @@ import pricing, { formatPrice } from '../../_config/pricing';
   }
 
   .cool-box {
-    width: 724px;
+    // width: 724px;
     // height: 472px;
     /* border: 2px solid;
     border-image: linear-gradient(45deg, #00f, #0ff) 1; */
