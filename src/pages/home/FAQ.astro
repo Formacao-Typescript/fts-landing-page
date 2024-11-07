@@ -1,6 +1,7 @@
 ---
 import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
 import FAQQuestions from './FAQQuestions.astro';
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
 ---
 
 <div class="faq-container">
@@ -19,7 +20,11 @@ import FAQQuestions from './FAQQuestions.astro';
       <h4>Ficou alguma dúvida?</h4>
       <p class="body-16">Nos envie uma mensagem</p>
 
-      <button class="faq-whatsapp-button interactable" type="button">
+      <button
+        class="faq-whatsapp-button interactable"
+        type="button"
+        onclick={`window.open('https://wa.me/${whatsappNumber}', '_blank')`}
+      >
         Chamar no Whatsapp
       </button>
     </BoxGradientBorder>
