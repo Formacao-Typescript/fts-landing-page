@@ -125,8 +125,12 @@ import Mentor from './home/Mentor.astro';
   }
 
   #cta-alt {
-    background: linear-gradient(105.87deg, #01c4fb 0.1%, #0165fc 77.77%);
-    box-shadow: 0px 4px 70.9px 0px #0266fc80;
+    background: linear-gradient(
+      105.87deg,
+      var(--blue-light) 0.1%,
+      var(--blue-dark) 77.77%
+    );
+    box-shadow: var(--blue-box-shadow);
     border-radius: 8px;
     padding: 48px;
     display: flex;
