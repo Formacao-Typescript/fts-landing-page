@@ -1,54 +1,87 @@
-# Astro Starter Kit: Basics
+# Formação TypeScript Landing Page
 
-```sh
-npm create astro@latest -- --template basics
+This project is the landing page for Formação TypeScript, a comprehensive course designed to help you master TypeScript and advance your career. The landing page provides detailed information about the course, including pricing, curriculum, testimonials, and more.
+
+## Features
+
+- **Hero Section**: Introduction to the course with a call-to-action button and a promotional video.
+- **About TypeScript**: Information about the benefits and features of TypeScript.
+- **Course Numbers**: Key statistics and numbers related to the course.
+- **Target Audience**: Details about who the course is designed for.
+- **Call to Action**: Encouragement to enroll in the course with a visually appealing button.
+- **Testimonials**: Feedback from previous students.
+- **Mentor Information**: Information about the course mentor.
+- **Pricing**: Detailed pricing information with options for monthly and yearly payments.
+- **FAQ**: Frequently asked questions about the course.
+
+## Technologies Used
+
+- **Astro**: A modern static site builder.
+- **SCSS**: For styling the components.
+- **JavaScript/TypeScript**: For interactivity and functionality.
+
+## Getting Started
+
+To get started with the project, clone the repository and install the dependencies:
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/your-username/formacao-typescript-landing-page.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd formacao-typescript-landing-page
+   ```
+
+3. Install the dependencies:
+
+   ```
+   npm install
+   ```
+
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+
+The development server will start, and you can view the landing page by navigating to `http://localhost:3000` in your web browser.
+
+## Project Structure
+
+The project structure is as follows:
+
+```
+src/
+├── components/        # Reusable components
+├── layouts/           # Layout components
+├── pages/             # Page components
+├── _config/           # Configuration files
+├── assets/            # Static assets (images, videos, etc.)
+└── styles/            # Global styles
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Contributing
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+If you would like to contribute to this project, please follow these steps:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+1. Fork the repository.
+2. Create a new branch:
+   ```
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes and commit them:
+   ```
+   git commit -m 'Add some feature'
+   ```
+4. Push to the branch:
+   ```
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request.
 
-## 🚀 Project Structure
+## License
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is licensed under the MIT License. See the LICENSE file for more information.
