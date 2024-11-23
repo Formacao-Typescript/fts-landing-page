@@ -8,7 +8,9 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
 
     <div class="plans">
       <div class="plan">
-        <span class="placeholder-rectangle"></span>
+        <span class="placeholder-rectangle">
+          <img src="/public/assets/audiences/junior.png" alt="junior" />
+        </span>
         <div>
           <p class="body-24">Devs Iniciantes</p>
           <p class="body-16">Passo a passo desde o início</p>
@@ -19,10 +21,14 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
           <p class="body-24">Devs Plenos</p>
           <p class="body-16">Conceitos focados</p>
         </div>
-        <span class="placeholder-rectangle"></span>
+        <span class="placeholder-rectangle">
+          <img src="/public/assets/audiences/pleno.png" alt="pleno" />
+        </span>
       </div>
       <div class="plan">
-        <span class="placeholder-rectangle"></span>
+        <span class="placeholder-rectangle">
+          <img src="/public/assets/audiences/senior.png" alt="senior" />
+        </span>
         <div>
           <p class="body-24">Devs Experientes</p>
           <p class="body-16">Conteúdo prático</p>
@@ -39,6 +45,13 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
     height: 227px;
     border-radius: 9.84px;
     background: #d9d9d9;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9.84px;
+    }
   }
   .target-audience {
     margin-top: 40px;
