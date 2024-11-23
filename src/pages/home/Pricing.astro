@@ -135,7 +135,7 @@ import pricing, { formatPrice } from '../../_config/pricing';
     // height: 472px;
     /* border: 2px solid;
     border-image: linear-gradient(45deg, #00f, #0ff) 1; */
-    background: linear-gradient(45deg, #00f, #0ff);
+    background: linear-gradient(45deg, var(--blue-dark), var(--blue-light));
     padding: 2px; /* Space for the border */
     background-clip: padding-box;
     border-radius: 10px;
@@ -167,7 +167,11 @@ import pricing, { formatPrice } from '../../_config/pricing';
     bottom: 0;
     border-radius: 20px; /* Same border-radius for the pseudo-element */
     padding: 2px;
-    background: linear-gradient(45deg, #00f, #0ff); /* Gradient border effect */
+    background: linear-gradient(
+      45deg,
+      var(--blue-dark),
+      var(--blue-light)
+    ); /* Gradient border effect */
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
