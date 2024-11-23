@@ -3,7 +3,12 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
 ---
 
 <div class="target-audience">
-  <BoxGradientBorder borderColor="gray" padding="98px" borderWidth="1px">
+  <BoxGradientBorder
+    borderColor="gray"
+    padding="98px"
+    borderWidth="1px"
+    paddingMobile="12px"
+  >
     <h1><span class="text-gradient">Para quem</span> é</h1>
 
     <div class="plans">
@@ -87,6 +92,17 @@ import BoxGradientBorder from '../../components/BoxGradientBorder.astro';
         > div {
           width: 100%;
         }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .target-audience {
+      width: 100%;
+      padding: 0;
+      .plans {
+        flex-direction: column;
+        align-items: center;
       }
     }
   }
