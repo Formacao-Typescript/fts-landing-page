@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="blue">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -35,6 +35,41 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global lang="scss">
+  html[data-theme='blue'] {
+    --blue-dark: #0165fc;
+    --blue-light: #01c4fb;
+    --blue-gradient: linear-gradient(105.87deg, #01c4fb 0.1%, #0165fc 77.77%);
+    --blue-box-shadow: 0px 4px 70.9px 0px #0266fc80;
+  }
+
+  html[data-theme='orange'] {
+    --blue-dark: #ff8c00;
+    --blue-light: #ffa500;
+    --blue-gradient: linear-gradient(105.87deg, #ffa500 0.1%, #ff8c00 77.77%);
+    --blue-box-shadow: 0px 4px 70.9px 0px #ff8c0080;
+  }
+
+  html[data-theme='green'] {
+    --blue-dark: #00a277;
+    --blue-light: #00ff99;
+    --blue-gradient: linear-gradient(105.87deg, #00ff99 0.1%, #00a277 77.77%);
+    --blue-box-shadow: 0px 4px 70.9px 0px #00a27780;
+  }
+
+  html[data-theme='purple'] {
+    --blue-dark: #800080;
+    --blue-light: #ff00ff;
+    --blue-gradient: linear-gradient(105.87deg, #ff00ff 0.1%, #800080 77.77%);
+    --blue-box-shadow: 0px 4px 70.9px 0px #80008080;
+  }
+
+  html[data-theme='red'] {
+    --blue-dark: #ff0000;
+    --blue-light: #ff4500;
+    --blue-gradient: linear-gradient(105.87deg, #ff4500 0.1%, #ff0000 77.77%);
+    --blue-box-shadow: 0px 4px 70.9px 0px #ff000080;
+  }
+
   :root {
     --blue-dark: #ff8c00;
     --blue-light: #ffa500;
@@ -218,23 +253,17 @@ const { title } = Astro.props;
   window.onresize = calculateZoom;
 </script>
 
-<!-- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('a[href^="#"]');
+<script>
+  const themes = ['blue', 'orange', 'green', 'purple', 'red'];
+  let currentThemeIndex = 0;
 
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+  function changeTheme() {
+    currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+    document.documentElement.setAttribute(
+      'data-theme',
+      themes[currentThemeIndex]
+    );
+  }
 
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
-      });
-    });
-  });
-</script> -->
+  setInterval(changeTheme, 2000);
+</script>
