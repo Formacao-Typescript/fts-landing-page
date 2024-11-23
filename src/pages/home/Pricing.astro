@@ -40,6 +40,13 @@ import pricing, { formatPrice } from '../../_config/pricing';
           style="margin-left: 16px"
         />
       </Button>
+      <a
+        href="/public/assets/Grade FTS Essencial.pdf"
+        target="_blank"
+        class="pricing-cta-grade"
+      >
+        Confira a grade completa do curso
+      </a>
     </div>
   </div>
 </div>
@@ -109,6 +116,16 @@ import pricing, { formatPrice } from '../../_config/pricing';
 
       button {
         margin: 0 !important;
+      }
+
+      a {
+        margin-top: 32px;
+        color: var(--white);
+        text-decoration: underline;
+
+        &:hover {
+          scale: 1.02;
+        }
       }
     }
   }
