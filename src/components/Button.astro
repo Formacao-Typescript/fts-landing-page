@@ -73,6 +73,12 @@ const { variant = 'primary', style = '', tooLargeMobile = false } = Astro.props;
     }
   }
 
+  @media (max-width: 600px) {
+    .button.too-large-mobile {
+      font-size: 16px;
+    }
+  }
+
   @media (max-width: 400px) {
     .button.too-large-mobile {
       font-size: 12px;
