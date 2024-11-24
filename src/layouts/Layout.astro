@@ -6,13 +6,30 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const meta = {
+    title: 'Formação TypeScript Essencial',
+    description: 'O curso de TypeScript mais completo do Brasil',
+    image: '/assets/banner.png',
+    url: 'https://formacaots.com.br'
+}
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={meta.image} />
+    <meta property="og:url" content={meta.url} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={meta.title} />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={meta.image} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="stylesheet" href="/normalize.css" />

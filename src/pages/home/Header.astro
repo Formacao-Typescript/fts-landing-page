@@ -16,7 +16,9 @@ const publicSalePage = import.meta.env.PUBLIC_SALE_PAGE
     </ul>
   </nav>
   <div class="cta-buttons">
-    <Button variant="outline">Já sou aluno</Button>
+        <Button variant="outline">
+            <a href="https://lsantos.dev/comunidade-fts" target="_blank">Já sou aluno</a>
+        </Button>
         <Button variant="primary">
             <a href={publicSalePage} target="_blank" class="cta-link">Inscreva-se agora</a>
         </Button>
@@ -68,6 +70,10 @@ const publicSalePage = import.meta.env.PUBLIC_SALE_PAGE
   .cta-buttons {
     display: flex;
     gap: 1rem;
+    a {
+        color: var(--white);
+        text-decoration: none;
+    }
   }
 
   @media (max-width: 900px) {
