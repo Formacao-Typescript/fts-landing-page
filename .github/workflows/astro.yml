@@ -32,6 +32,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_MONTHLY_PRICE: ${{ vars.PUBLIC_MONTHLY_PRICE }}
+      PUBLIC_YEALY_PRICE: ${{ vars.PUBLIC_YEARLY_PRICE }}
+      PUBLIC_SALE_PAGE: ${{ vars.PUBLIC_SALE_PAGE }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
