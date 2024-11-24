@@ -27,7 +27,7 @@ concurrency:
 env:
   BUILD_PATH: "." # default value when not using subfolders
   PUBLIC_MONTHLY_PRICE: ${{ vars.PUBLIC_MONTHLY_PRICE }}
-  PUBLIC_YEALY_PRICE: ${{ vars.PUBLIC_YEARLY_PRICE }}
+  PUBLIC_YEARLY_PRICE: ${{ vars.PUBLIC_YEARLY_PRICE }}
   PUBLIC_SALE_PAGE: ${{ vars.PUBLIC_SALE_PAGE }}
   # BUILD_PATH: subfolder
 
