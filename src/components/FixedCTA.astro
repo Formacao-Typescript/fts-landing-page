@@ -1,16 +1,23 @@
 ---
 import Button from './Button.astro';
+const publicSalePage = import.meta.env.PUBLIC_SALE_PAGE
 ---
 
 <div class="fixed-cta">
   <p class="body-16 fixed-cta-text">Sua carreira com TS começa aqui</p>
   <div class="button-container">
-    <Button variant="primary">Inscreva-se agora</Button>
+        <Button variant="primary">
+            <a href={publicSalePage} target="_blank">Inscreva-se agora</a>
+        </Button>
   </div>
 </div>
 
 <style lang="scss">
   .fixed-cta {
+    a {
+        color: white;
+        text-decoration: none;
+    }
     position: fixed;
     bottom: 20px;
     left: 50%;

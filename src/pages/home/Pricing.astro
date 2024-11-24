@@ -1,6 +1,7 @@
 ---
 import Button from '../../components/Button.astro';
 import pricing, { formatPrice } from '../../_config/pricing';
+const publicSalePage = import.meta.env.PUBLIC_SALE_PAGE
 ---
 
 <div class="cool-box">
@@ -30,10 +31,10 @@ import pricing, { formatPrice } from '../../_config/pricing';
       </p>
       <Button
         variant="primary-large"
-        style="margin-top: 32px; padding: 27px"
+        style="margin-top: 32px; padding: 27px; margin-bottom: 10px;"
         tooLargeMobile
       >
-        Inscreva-se agora
+        <a href={publicSalePage} target="_blank">Inscreva-se agora</a>
         <img
           src="/public/assets/icons/rocket.svg"
           alt="rocket"
@@ -57,7 +58,7 @@ import pricing, { formatPrice } from '../../_config/pricing';
     align-items: center;
     justify-content: center;
     padding: 48px 64px;
-
+    
     &-logo {
       margin-bottom: 48px;
     }
@@ -75,8 +76,9 @@ import pricing, { formatPrice } from '../../_config/pricing';
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--gray-500);
+      color: var(--white);
     }
+
     &-info {
       ul {
         list-style: none;
@@ -119,7 +121,6 @@ import pricing, { formatPrice } from '../../_config/pricing';
       }
 
       a {
-        margin-top: 32px;
         color: var(--white);
         text-decoration: underline;
 

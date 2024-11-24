@@ -4,7 +4,6 @@ import Button from '../components/Button.astro';
 import AnimatedCodeBlock from '../components/AnimatedCodeBlock.astro';
 import FixedCTA from '../components/FixedCTA.astro';
 import VideoPlayer from '../components/VideoPlayer.astro';
-import BoxGradientBorder from '../components/BoxGradientBorder.astro';
 
 import Header from './home/Header.astro';
 import Pricing from './home/Pricing.astro';
@@ -14,6 +13,7 @@ import AboutTS from './home/AboutTS.astro';
 import TargetAudience from './home/TargetAudience.astro';
 import Testimonials from './home/Testimonials.astro';
 import Mentor from './home/Mentor.astro';
+const publicSalePage = import.meta.env.PUBLIC_SALE_PAGE;
 ---
 
 <Layout title="Formação Typescript">
@@ -28,7 +28,7 @@ import Mentor from './home/Mentor.astro';
     <section id="hero" class="limited-width">
       <AnimatedCodeBlock code="Hello World" />
       <h1>
-        Torne-se um mestre <br /> em
+        Torne-se um mestre<br /> em
         <span class="text-gradient">TypeScript</span>
       </h1>
       <p class="body-24">
@@ -60,7 +60,7 @@ import Mentor from './home/Mentor.astro';
       <div class="cta-alt-buttons">
         <img src="/public/assets/icons/arrow-right.svg" alt=">" />
         <Button variant="primary-alt">
-          <span class="text-gradient">Inscreva-se agora</span>
+            <a href={publicSalePage} target="_blank" class="text-gradient">Inscreva-se agora</a>
         </Button>
       </div>
     </section>

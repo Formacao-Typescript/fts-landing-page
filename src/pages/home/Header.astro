@@ -1,5 +1,6 @@
 ---
 import Button from '../../components/Button.astro';
+const publicSalePage = import.meta.env.PUBLIC_SALE_PAGE
 ---
 
 <header>
@@ -16,11 +17,18 @@ import Button from '../../components/Button.astro';
   </nav>
   <div class="cta-buttons">
     <Button variant="outline">Já sou aluno</Button>
-    <Button variant="primary">Inscreva-se agora</Button>
+        <Button variant="primary">
+            <a href={publicSalePage} target="_blank" class="cta-link">Inscreva-se agora</a>
+        </Button>
   </div>
 </header>
 
 <style lang="scss">
+  .cta-link {
+    color: white;
+    text-decoration: none;
+  }
+
   header {
     width: 100%;
     display: flex;
