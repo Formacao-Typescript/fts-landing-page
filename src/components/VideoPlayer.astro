@@ -10,35 +10,11 @@ interface Props {
 
 const {
   src,
-  poster,
-  autoplay = false,
-  controls = true,
-  muted = false,
-  loop = false,
 } = Astro.props;
 ---
 
 <div class="video-player">
-  <video
-    id="video"
-    src={src}
-    poster={poster}
-    autoplay={autoplay}
-    controls={controls}
-    muted={muted}
-    loop={loop}
-  >
-    Your browser does not support the video tag.
-  </video>
-  <div class="play-overlay">
-    <button type="button" class="play-button">
-      <span class="outer-circle circle">
-        <span class="inner-circle circle">
-          <img src="/public/assets/video-play.svg" alt="Play" />
-        </span>
-      </span>
-    </button>
-  </div>
+    <iframe width="750" height="420" src={src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 <style lang="scss">
@@ -121,33 +97,3 @@ const {
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('video') as HTMLVideoElement;
-    const playButton = document.querySelector(
-      '.play-button'
-    ) as HTMLButtonElement;
-    const playOverlay = document.querySelector('.play-overlay') as HTMLElement;
-
-    if (video && playButton && playOverlay) {
-      playButton.addEventListener('click', () => {
-        if (video.paused) {
-          video.play();
-          playOverlay.style.display = 'none';
-        } else {
-          video.pause();
-          playOverlay.style.display = 'flex';
-        }
-      });
-
-      video.addEventListener('play', () => {
-        playOverlay.style.display = 'none';
-      });
-
-      video.addEventListener('pause', () => {
-        playOverlay.style.display = 'flex';
-      });
-    }
-  });
-</script>
