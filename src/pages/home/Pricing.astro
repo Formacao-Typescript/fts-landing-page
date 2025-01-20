@@ -25,7 +25,7 @@ const publicSalePage = import.meta.env.PUBLIC_SALE_PAGE
 
     <div class="pricing-cta pricing-box">
       <p class="pricing-cta-text body-20">12x de</p>
-      <h1 class="pricing-cta-price">{formatPrice(pricing.monthly)}</h1>
+            <h1 class="pricing-cta-price">{formatPrice((pricing.yearly / 12))}</h1>
       <p class="pricing-cta-text body-20">
         ou {formatPrice(pricing.yearly)} à vista
       </p>
